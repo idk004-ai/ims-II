@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: ims
+  datasource:
+    url: ${DBMS_CONNECTION:jdbc:mysql://localhost:3306/interviewManagement}?useSSL=false
+    username: ${DBMS_USERNAME:root}
+    password: ${DBMS_PASSWORD:root}
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+server:
+  port: 8080
