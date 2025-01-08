@@ -32,10 +32,6 @@ public class User extends BaseEntity implements UserDetails, Principal {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    // Consider
-    @Column(name = "refresh_token", nullable = true)
-    private String refresh_token;
-
     @Column(unique = true)
     private String email;
 
@@ -46,13 +42,13 @@ public class User extends BaseEntity implements UserDetails, Principal {
     private String password;
 
     @Column(nullable = false, name = "full_name", length = 100)
-    private String full_name;
+    private String fullName;
 
     @Column(name = "department_id", nullable = false)
-    private int department_id;
+    private int departmentId;
 
     @Column(name = "role_id", nullable = false)
-    private int role_id;
+    private int roleId;
 
     @Column(name = "status_id", nullable = false)
     private int status;
@@ -76,10 +72,10 @@ public class User extends BaseEntity implements UserDetails, Principal {
     private String note;
 
     @OneToMany(mappedBy = "interviewer", fetch = FetchType.LAZY)
-    private Set<InterviewerAssignment> interviewer_assignments;
+    private Set<InterviewerAssignment> scheduleAssignments;
 
     @OneToMany(mappedBy = "createdBy")
-    private List<Schedule> interviews;
+    private List<Schedule> schedules;
 
     @OneToMany(mappedBy = "createdBy")
     private List<Candidate> candidates;
@@ -93,17 +89,9 @@ public class User extends BaseEntity implements UserDetails, Principal {
     @OneToMany(mappedBy = "createdBy")
     private List<Job> jobs;
 
-    @CreatedDate
-    @Column(nullable = false, updatable = false)
-    private LocalDateTime createdDate;
-
-    @LastModifiedDate
-    @Column(insertable = false)
-    private LocalDateTime modifiedDate;
-
     @Override
     public String getName() {
-        return this.full_name;
+        return this.fullName;
     }
 
     @Override
@@ -119,7 +107,7 @@ public class User extends BaseEntity implements UserDetails, Principal {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<GrantedAuthority> authorities = new ArrayList<>();
-        switch (role_id) {
+        switch (roleId) {
             case 1:
                 authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
                 break;

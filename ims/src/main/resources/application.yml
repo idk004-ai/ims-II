@@ -5,11 +5,18 @@ spring:
     url: ${DBMS_CONNECTION:jdbc:mysql://localhost:3306/interviewManagement}?useSSL=false
     username: ${DBMS_USERNAME:root}
     password: ${DBMS_PASSWORD:root}
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
       ddl-auto: update
     show-sql: true
 
+app:
+  jwt:
+    secret-key: a2hpYmlldGVtbWFuZ2tpZXBjYW1jYWRlbWRlbXBob25ndHJhbWFuZ3RpZW5naGF0Y2hvbmd1b2lkb2ljaGljYW5hbmh0aG9pY2hpY2FuYW5odGhvaWNvbnlldWVtbnVha2hvbmc=
+    access_token:
+      expiration_time: 3600
+    refresh_token:
+      expiration_time: 7200
 server:
   port: 8080

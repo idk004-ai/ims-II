@@ -5,15 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9675485a-91c9-44c0-9965-35f28776999e" name="Changes" comment="create system entities">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ims-II.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +93,10 @@
       <option name="presentableId" value="Default" />
       <updated>1735811963729</updated>
       <workItem from="1735811965810" duration="3107000" />
-      <workItem from="1735875741436" duration="5357000" />
+      <workItem from="1735875741436" duration="6548000" />
+      <workItem from="1735997459159" duration="28000" />
+      <workItem from="1735997623086" duration="25000" />
+      <workItem from="1736062088332" duration="59000" />
     </task>
     <task id="LOCAL-00001" summary="create system entities">
       <option name="closed" value="true" />

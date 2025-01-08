@@ -30,11 +30,11 @@ public class InterviewerAssignment {
     private Integer id;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "interviewer_id", referencedColumnName = "user_id")
+    @JoinColumn(name = "interviewer_id", referencedColumnName = "id")
     private User interviewer;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "schedule_id", referencedColumnName = "schedule_id")
+    @JoinColumn(name = "schedule_id", referencedColumnName = "id")
     private Schedule schedule;
 
 }

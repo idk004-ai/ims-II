@@ -31,7 +31,7 @@ public class Candidate extends BaseEntity {
     private String name;
 
     @Column(name = "phone_number", length = 20, nullable = true)
-    private String phone_number;
+    private String phoneNumber;
 
     @Column(name = "dob", nullable = true)
     private LocalDate dob;
@@ -40,40 +40,38 @@ public class Candidate extends BaseEntity {
     private String address;
 
     @Column(name = "gender_id", nullable = false)
-    private int gender_id;
+    private int genderId;
 
     @Column(name = "position_id", nullable = false)
-    private int position_id;
+    private int positionId;
 
     @Lob
     @Column(name = "cv", nullable = true)
     private String cv;
 
     @Column(name = "cv_file_name", nullable = true)
-    private String cv_file_name;
+    private String cvFileName;
 
     @Column(name = "yoe", nullable = true)
     private int yoe;
 
     @Column(name = "highest_level_id", nullable = false)
-    private int highest_level_id;
+    private int highestLevelId;
 
     @Column(name = "skills", nullable = false, columnDefinition = "TEXT")
     private String skill;
 
     @Column(name = "status_id", nullable = false)
-    private int status_id;
+    private int statusId;
 
     @Column(length = 500, nullable = true)
     private String note;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "recruiter_id", referencedColumnName = "user_id", nullable = false)
+    @JoinColumn(name = "recruiter_id", referencedColumnName = "id", nullable = false)
     private User recruiter;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "candidate")
-    private List<Schedule> schedule_list;
+    private List<Schedule> scheduleList;
 
-//    @OneToMany(mappedBy = "candidate")
-//    private List<JobApplication> jobList;
 }

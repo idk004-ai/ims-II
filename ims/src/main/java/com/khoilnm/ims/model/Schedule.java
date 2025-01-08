@@ -38,74 +38,73 @@ public class Schedule extends BaseEntity {
     private String title;
 
     @Column(name = "schedule_time", nullable = false)
-    private LocalDate schedule_time;
+    private LocalDate scheduleTime;
 
     @Column(name = "start_time", nullable = false)
-    private LocalTime start_time;
+    private LocalTime startTime;
 
     @Column(name = "end_time", nullable = false)
-    private LocalTime end_time;
+    private LocalTime endTime;
 
     @Column(name = "schedule_location", length = 100, nullable = true)
-    private String schedule_location;
+    private String scheudleLocation;
 
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
-    @JoinColumn(name = "candidate_id", referencedColumnName = "candidate_id")
+    @JoinColumn(name = "candidate_id", referencedColumnName = "id")
     private Candidate candidate;
 
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
-    @JoinColumn(name = "job_id", referencedColumnName = "job_id")
+    @JoinColumn(name = "job_id", referencedColumnName = "id")
     private Job job;
 
-    @Column(name = "meeting_id", columnDefinition = "TEXT", nullable = true
-    )
+    @Column(name = "meeting_id", columnDefinition = "TEXT", nullable = true)
     private String meetingId;
 
     @Column(name = "schedule_note", columnDefinition = "TEXT")
-    private String schedule_note;
+    private String scheduleNote;
 
     @Column(name = "status_schedule_id", nullable = false)
-    private int schedule_status_id;
+    private int scheduleStatusId;
 
     @Column(name = "result_schedule_id", nullable = true)
-    private Integer schedule_result_id;
+    private Integer scheduleResultId;
 
     @OneToMany(mappedBy = "schedule", fetch = FetchType.EAGER)
-    private List<InterviewerAssignment> schedule_assignments;
+    private List<InterviewerAssignment> scheduleInterviewerList;
 
     /// Offer
     @Column(name = "offer_department", nullable = false)
-    private int offer_department;
+    private int offerDepartment;
 
     @Column(name = "status_offer_id", nullable = false)
-    private int offer_status_id;
+    private int offerStatusId;
 
     @Column(name = "contract_type_id", nullable = false)
-    private int contract_type_id;
+    private int contractTypeId;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "offer_creator", referencedColumnName = "user_id", nullable = true)
-    private User offer_creator;
+    @JoinColumn(name = "offer_creator", referencedColumnName = "id", nullable = true)
+    private User offerCreator;
 
     // private Master department; -> get by User
 
     @Column(name = "due_date", nullable = false)
-    private LocalDate due_date;
+    private LocalDate dueDate;
 
     @Column(name = "contract_from", nullable = false)
-    private LocalDate contract_from;
+    private LocalDate contractFrom;
 
     @Column(name = "contract_to", nullable = false)
-    private LocalDate contract_to;
+    private LocalDate contractTo;
 
     @Column(name = "basic_salary", nullable = false)
     private Double salary;
 
     @Column(name = "offer_note", columnDefinition = "TEXT")
-    private String offer_note;
+    private String offerNote;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "manager_id", referencedColumnName = "user_id")
+    @JoinColumn(name = "manager_id", referencedColumnName = "id")
     private User approver;
 
 }

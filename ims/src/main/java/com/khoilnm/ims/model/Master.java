@@ -31,9 +31,9 @@ public class Master {
     private String category;
 
     @Column(name = "category_id", nullable = false)
-    private Integer category_id;
+    private Integer categoryId;
 
     @Column(name = "category_value", nullable = false, length = 255)
-    private String category_value;
+    private String categoryValue;
 
 }

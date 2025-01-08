@@ -1,0 +1,14 @@
+{
+  "properties": [
+    {
+      "name": "app.jwt.access_token.expiration_time",
+      "type": "java.lang.String",
+      "description": "Description for app.jwt.access_token.expiration."
+    },
+    {
+      "name": "app.jwt.refresh_token.expiration_time",
+      "type": "java.lang.String",
+      "description": "Description for app.jwt.refresh_token.expiration."
+    }
+  ]
+}

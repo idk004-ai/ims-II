@@ -1,0 +1,4 @@
+- Không cần @Autowired trên constructor trong những trường hợp sau:
+  - Có một constructor duy nhất trong class.
+  - Có nhiều constructor trong class nhưng mỗi constructor đều có annotation @Autowired.
+- Nên đánh final cho các field mà không thay đổi giá trị sau khi khởi tạo.

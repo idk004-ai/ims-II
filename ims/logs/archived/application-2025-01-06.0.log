@@ -1,0 +1,555 @@
+2025-01-06 11:03:36.598 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Starting ImsApplication using Java 17.0.12 with PID 5688 (C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes started by Le Nhat Minh Khoi in C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims)
+2025-01-06 11:03:36.600 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - No active profile set, falling back to 1 default profile: "default"
+2025-01-06 11:03:38.048 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Starting...
+2025-01-06 11:03:38.055 [main] WARN  c.z.hikari.util.DriverDataSource [] [anonymous] - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2025-01-06 11:03:38.220 [main] INFO  com.zaxxer.hikari.pool.HikariPool [] [anonymous] - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2b0454d2
+2025-01-06 11:03:38.222 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Start completed.
+2025-01-06 11:03:39.002 [main] ERROR o.s.o.j.LocalContainerEntityManagerFactoryBean [] [anonymous] - Failed to initialize JPA EntityManagerFactory: A '@JoinColumn' references a column named 'user_id' but the target entity 'com.khoilnm.ims.model.User' has no property which maps to this column
+2025-01-06 11:03:39.002 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext [] [anonymous] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: A '@JoinColumn' references a column named 'user_id' but the target entity 'com.khoilnm.ims.model.User' has no property which maps to this column
+2025-01-06 11:03:39.003 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown initiated...
+2025-01-06 11:03:39.010 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown completed.
+2025-01-06 11:03:39.062 [main] ERROR o.s.boot.SpringApplication [] [anonymous] - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: A '@JoinColumn' references a column named 'user_id' but the target entity 'com.khoilnm.ims.model.User' has no property which maps to this column
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1808)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:336)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:289)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:334)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:204)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
+	at com.khoilnm.ims.ImsApplication.main(ImsApplication.java:10)
+Caused by: org.hibernate.MappingException: A '@JoinColumn' references a column named 'user_id' but the target entity 'com.khoilnm.ims.model.User' has no property which maps to this column
+	at org.hibernate.boot.model.internal.AnnotatedJoinColumns.getReferencedColumnsType(AnnotatedJoinColumns.java:320)
+	at org.hibernate.boot.model.internal.BinderHelper.createSyntheticPropertyReference(BinderHelper.java:152)
+	at org.hibernate.boot.model.internal.ToOneFkSecondPass.doSecondPass(ToOneFkSecondPass.java:114)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processEndOfQueue(InFlightMetadataCollectorImpl.java:1937)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processFkSecondPassesInOrder(InFlightMetadataCollectorImpl.java:1886)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processSecondPasses(InFlightMetadataCollectorImpl.java:1794)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:334)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1431)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1502)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1855)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804)
+	... 15 common frames omitted
+2025-01-06 11:05:03.554 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Starting ImsApplication using Java 17.0.12 with PID 1992 (C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes started by Le Nhat Minh Khoi in C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims)
+2025-01-06 11:05:03.554 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - No active profile set, falling back to 1 default profile: "default"
+2025-01-06 11:05:04.757 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Starting...
+2025-01-06 11:05:04.760 [main] WARN  c.z.hikari.util.DriverDataSource [] [anonymous] - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2025-01-06 11:05:05.888 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext [] [anonymous] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'batchDataSourceInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'batchDataSourceInitializer' defined in class path resource [org/springframework/boot/autoconfigure/batch/BatchAutoConfiguration$DataSourceInitializerConfiguration.class]: Failed to instantiate [org.springframework.boot.autoconfigure.batch.BatchDataSourceScriptDatabaseInitializer]: Factory method 'batchDataSourceInitializer' threw exception with message: Failed to determine DatabaseDriver
+2025-01-06 11:05:05.935 [main] ERROR o.s.boot.SpringApplication [] [anonymous] - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'batchDataSourceInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'batchDataSourceInitializer' defined in class path resource [org/springframework/boot/autoconfigure/batch/BatchAutoConfiguration$DataSourceInitializerConfiguration.class]: Failed to instantiate [org.springframework.boot.autoconfigure.batch.BatchDataSourceScriptDatabaseInitializer]: Factory method 'batchDataSourceInitializer' threw exception with message: Failed to determine DatabaseDriver
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:204)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
+	at com.khoilnm.ims.ImsApplication.main(ImsApplication.java:10)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'batchDataSourceInitializer' defined in class path resource [org/springframework/boot/autoconfigure/batch/BatchAutoConfiguration$DataSourceInitializerConfiguration.class]: Failed to instantiate [org.springframework.boot.autoconfigure.batch.BatchDataSourceScriptDatabaseInitializer]: Factory method 'batchDataSourceInitializer' threw exception with message: Failed to determine DatabaseDriver
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:657)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:645)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1357)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1187)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:563)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:336)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:289)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:334)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:312)
+	... 10 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.boot.autoconfigure.batch.BatchDataSourceScriptDatabaseInitializer]: Factory method 'batchDataSourceInitializer' threw exception with message: Failed to determine DatabaseDriver
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:199)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiateWithFactoryMethod(SimpleInstantiationStrategy.java:88)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:168)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653)
+	... 20 common frames omitted
+Caused by: java.lang.IllegalStateException: Failed to determine DatabaseDriver
+	at org.springframework.boot.jdbc.init.PlatformPlaceholderDatabaseDriverResolver.getDatabaseDriver(PlatformPlaceholderDatabaseDriverResolver.java:144)
+	at org.springframework.boot.jdbc.init.PlatformPlaceholderDatabaseDriverResolver.determinePlatform(PlatformPlaceholderDatabaseDriverResolver.java:132)
+	at org.springframework.boot.jdbc.init.PlatformPlaceholderDatabaseDriverResolver.lambda$resolveAll$0(PlatformPlaceholderDatabaseDriverResolver.java:97)
+	at org.springframework.boot.jdbc.init.PlatformPlaceholderDatabaseDriverResolver.resolveAll(PlatformPlaceholderDatabaseDriverResolver.java:122)
+	at org.springframework.boot.jdbc.init.PlatformPlaceholderDatabaseDriverResolver.resolveAll(PlatformPlaceholderDatabaseDriverResolver.java:97)
+	at org.springframework.boot.autoconfigure.batch.BatchDataSourceScriptDatabaseInitializer.resolveSchemaLocations(BatchDataSourceScriptDatabaseInitializer.java:83)
+	at org.springframework.boot.autoconfigure.batch.BatchDataSourceScriptDatabaseInitializer.getSettings(BatchDataSourceScriptDatabaseInitializer.java:72)
+	at org.springframework.boot.autoconfigure.batch.BatchDataSourceScriptDatabaseInitializer.<init>(BatchDataSourceScriptDatabaseInitializer.java:47)
+	at org.springframework.boot.autoconfigure.batch.BatchAutoConfiguration$DataSourceInitializerConfiguration.batchDataSourceInitializer(BatchAutoConfiguration.java:180)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:171)
+	... 23 common frames omitted
+Caused by: org.springframework.jdbc.support.MetaDataAccessException: Could not get Connection for extracting meta-data
+	at org.springframework.jdbc.support.JdbcUtils.extractDatabaseMetaData(JdbcUtils.java:357)
+	at org.springframework.boot.jdbc.init.PlatformPlaceholderDatabaseDriverResolver.getDatabaseDriver(PlatformPlaceholderDatabaseDriverResolver.java:140)
+	... 36 common frames omitted
+Caused by: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:84)
+	at org.springframework.jdbc.support.JdbcUtils.extractDatabaseMetaData(JdbcUtils.java:331)
+	... 37 common frames omitted
+Caused by: java.sql.SQLSyntaxErrorException: Unknown database 'interviewmanagement'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:837)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:420)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:238)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:180)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:137)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:360)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:202)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:461)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:550)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:98)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111)
+	at org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:160)
+	at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:118)
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:81)
+	... 38 common frames omitted
+2025-01-06 11:05:33.163 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Starting ImsApplication using Java 17.0.12 with PID 22988 (C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes started by Le Nhat Minh Khoi in C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims)
+2025-01-06 11:05:33.165 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - No active profile set, falling back to 1 default profile: "default"
+2025-01-06 11:05:34.276 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Starting...
+2025-01-06 11:05:35.423 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext [] [anonymous] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'batchDataSourceInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'batchDataSourceInitializer' defined in class path resource [org/springframework/boot/autoconfigure/batch/BatchAutoConfiguration$DataSourceInitializerConfiguration.class]: Failed to instantiate [org.springframework.boot.autoconfigure.batch.BatchDataSourceScriptDatabaseInitializer]: Factory method 'batchDataSourceInitializer' threw exception with message: Failed to determine DatabaseDriver
+2025-01-06 11:05:35.474 [main] ERROR o.s.boot.SpringApplication [] [anonymous] - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'batchDataSourceInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'batchDataSourceInitializer' defined in class path resource [org/springframework/boot/autoconfigure/batch/BatchAutoConfiguration$DataSourceInitializerConfiguration.class]: Failed to instantiate [org.springframework.boot.autoconfigure.batch.BatchDataSourceScriptDatabaseInitializer]: Factory method 'batchDataSourceInitializer' threw exception with message: Failed to determine DatabaseDriver
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:204)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
+	at com.khoilnm.ims.ImsApplication.main(ImsApplication.java:10)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'batchDataSourceInitializer' defined in class path resource [org/springframework/boot/autoconfigure/batch/BatchAutoConfiguration$DataSourceInitializerConfiguration.class]: Failed to instantiate [org.springframework.boot.autoconfigure.batch.BatchDataSourceScriptDatabaseInitializer]: Factory method 'batchDataSourceInitializer' threw exception with message: Failed to determine DatabaseDriver
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:657)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:645)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1357)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1187)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:563)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:336)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:289)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:334)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:312)
+	... 10 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.boot.autoconfigure.batch.BatchDataSourceScriptDatabaseInitializer]: Factory method 'batchDataSourceInitializer' threw exception with message: Failed to determine DatabaseDriver
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:199)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiateWithFactoryMethod(SimpleInstantiationStrategy.java:88)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:168)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653)
+	... 20 common frames omitted
+Caused by: java.lang.IllegalStateException: Failed to determine DatabaseDriver
+	at org.springframework.boot.jdbc.init.PlatformPlaceholderDatabaseDriverResolver.getDatabaseDriver(PlatformPlaceholderDatabaseDriverResolver.java:144)
+	at org.springframework.boot.jdbc.init.PlatformPlaceholderDatabaseDriverResolver.determinePlatform(PlatformPlaceholderDatabaseDriverResolver.java:132)
+	at org.springframework.boot.jdbc.init.PlatformPlaceholderDatabaseDriverResolver.lambda$resolveAll$0(PlatformPlaceholderDatabaseDriverResolver.java:97)
+	at org.springframework.boot.jdbc.init.PlatformPlaceholderDatabaseDriverResolver.resolveAll(PlatformPlaceholderDatabaseDriverResolver.java:122)
+	at org.springframework.boot.jdbc.init.PlatformPlaceholderDatabaseDriverResolver.resolveAll(PlatformPlaceholderDatabaseDriverResolver.java:97)
+	at org.springframework.boot.autoconfigure.batch.BatchDataSourceScriptDatabaseInitializer.resolveSchemaLocations(BatchDataSourceScriptDatabaseInitializer.java:83)
+	at org.springframework.boot.autoconfigure.batch.BatchDataSourceScriptDatabaseInitializer.getSettings(BatchDataSourceScriptDatabaseInitializer.java:72)
+	at org.springframework.boot.autoconfigure.batch.BatchDataSourceScriptDatabaseInitializer.<init>(BatchDataSourceScriptDatabaseInitializer.java:47)
+	at org.springframework.boot.autoconfigure.batch.BatchAutoConfiguration$DataSourceInitializerConfiguration.batchDataSourceInitializer(BatchAutoConfiguration.java:180)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:171)
+	... 23 common frames omitted
+Caused by: org.springframework.jdbc.support.MetaDataAccessException: Could not get Connection for extracting meta-data
+	at org.springframework.jdbc.support.JdbcUtils.extractDatabaseMetaData(JdbcUtils.java:357)
+	at org.springframework.boot.jdbc.init.PlatformPlaceholderDatabaseDriverResolver.getDatabaseDriver(PlatformPlaceholderDatabaseDriverResolver.java:140)
+	... 36 common frames omitted
+Caused by: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:84)
+	at org.springframework.jdbc.support.JdbcUtils.extractDatabaseMetaData(JdbcUtils.java:331)
+	... 37 common frames omitted
+Caused by: java.sql.SQLSyntaxErrorException: Unknown database 'interviewmanagement'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:837)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:420)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:238)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:180)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:137)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:360)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:202)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:461)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:550)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:98)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111)
+	at org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:160)
+	at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:118)
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:81)
+	... 38 common frames omitted
+2025-01-06 11:06:31.194 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Starting ImsApplication using Java 17.0.12 with PID 12684 (C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes started by Le Nhat Minh Khoi in C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims)
+2025-01-06 11:06:31.196 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - No active profile set, falling back to 1 default profile: "default"
+2025-01-06 11:06:32.702 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Starting...
+2025-01-06 11:06:33.831 [main] WARN  o.h.e.jdbc.spi.SqlExceptionHelper [] [anonymous] - SQL Error: 1049, SQLState: 42000
+2025-01-06 11:06:33.832 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper [] [anonymous] - Unknown database 'interviewmanagement'
+2025-01-06 11:06:33.842 [main] WARN  o.h.e.j.e.i.JdbcEnvironmentInitiator [] [anonymous] - HHH000342: Could not obtain connection to query metadata
+org.hibernate.exception.SQLGrammarException: unable to obtain isolated JDBC connection [Unknown database 'interviewmanagement'] [n/a]
+	at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:91)
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:58)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:94)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:116)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:320)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:129)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:81)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:130)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:238)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:226)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:194)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:171)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1431)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1502)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1855)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:336)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:289)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:334)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:204)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
+	at com.khoilnm.ims.ImsApplication.main(ImsApplication.java:10)
+Caused by: java.sql.SQLSyntaxErrorException: Unknown database 'interviewmanagement'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:837)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:420)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:238)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:180)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:137)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:360)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:202)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:461)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:550)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:98)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:126)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:467)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:61)
+	... 35 common frames omitted
+2025-01-06 11:06:33.845 [main] ERROR o.s.o.j.LocalContainerEntityManagerFactoryBean [] [anonymous] - Failed to initialize JPA EntityManagerFactory: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please set 'jakarta.persistence.jdbc.url' for common cases or 'hibernate.dialect' when a custom Dialect implementation must be provided)
+2025-01-06 11:06:33.846 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext [] [anonymous] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please set 'jakarta.persistence.jdbc.url' for common cases or 'hibernate.dialect' when a custom Dialect implementation must be provided)
+2025-01-06 11:06:33.902 [main] ERROR o.s.boot.SpringApplication [] [anonymous] - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please set 'jakarta.persistence.jdbc.url' for common cases or 'hibernate.dialect' when a custom Dialect implementation must be provided)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1808)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:336)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:289)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:334)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:204)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
+	at com.khoilnm.ims.ImsApplication.main(ImsApplication.java:10)
+Caused by: org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please set 'jakarta.persistence.jdbc.url' for common cases or 'hibernate.dialect' when a custom Dialect implementation must be provided)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:276)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:238)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:226)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:194)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:171)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1431)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1502)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1855)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804)
+	... 15 common frames omitted
+Caused by: org.hibernate.HibernateException: Unable to determine Dialect without JDBC metadata (please set 'jakarta.persistence.jdbc.url' for common cases or 'hibernate.dialect' when a custom Dialect implementation must be provided)
+	at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.determineDialect(DialectFactoryImpl.java:191)
+	at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.buildDialect(DialectFactoryImpl.java:87)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentWithDefaults(JdbcEnvironmentInitiator.java:181)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:392)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:129)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:81)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:130)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263)
+	... 30 common frames omitted
+2025-01-06 11:07:06.706 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Starting ImsApplication using Java 17.0.12 with PID 8480 (C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes started by Le Nhat Minh Khoi in C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims)
+2025-01-06 11:07:06.706 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - No active profile set, falling back to 1 default profile: "default"
+2025-01-06 11:07:08.177 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Starting...
+2025-01-06 11:07:08.295 [main] INFO  com.zaxxer.hikari.pool.HikariPool [] [anonymous] - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2be50bba
+2025-01-06 11:07:08.297 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Start completed.
+2025-01-06 11:07:08.568 [main] ERROR o.s.o.j.LocalContainerEntityManagerFactoryBean [] [anonymous] - Failed to initialize JPA EntityManagerFactory: A '@JoinColumn' references a column named 'user_id' but the target entity 'com.khoilnm.ims.model.User' has no property which maps to this column
+2025-01-06 11:07:08.569 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext [] [anonymous] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: A '@JoinColumn' references a column named 'user_id' but the target entity 'com.khoilnm.ims.model.User' has no property which maps to this column
+2025-01-06 11:07:08.569 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown initiated...
+2025-01-06 11:07:08.579 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown completed.
+2025-01-06 11:07:08.626 [main] ERROR o.s.boot.SpringApplication [] [anonymous] - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: A '@JoinColumn' references a column named 'user_id' but the target entity 'com.khoilnm.ims.model.User' has no property which maps to this column
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1808)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:336)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:289)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:334)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:204)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
+	at com.khoilnm.ims.ImsApplication.main(ImsApplication.java:10)
+Caused by: org.hibernate.MappingException: A '@JoinColumn' references a column named 'user_id' but the target entity 'com.khoilnm.ims.model.User' has no property which maps to this column
+	at org.hibernate.boot.model.internal.AnnotatedJoinColumns.getReferencedColumnsType(AnnotatedJoinColumns.java:320)
+	at org.hibernate.boot.model.internal.BinderHelper.createSyntheticPropertyReference(BinderHelper.java:152)
+	at org.hibernate.boot.model.internal.ToOneFkSecondPass.doSecondPass(ToOneFkSecondPass.java:114)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processEndOfQueue(InFlightMetadataCollectorImpl.java:1937)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processFkSecondPassesInOrder(InFlightMetadataCollectorImpl.java:1886)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processSecondPasses(InFlightMetadataCollectorImpl.java:1794)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:334)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1431)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1502)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1855)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804)
+	... 15 common frames omitted
+2025-01-06 11:08:22.043 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Starting ImsApplication using Java 17.0.12 with PID 21956 (C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes started by Le Nhat Minh Khoi in C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims)
+2025-01-06 11:08:22.045 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - No active profile set, falling back to 1 default profile: "default"
+2025-01-06 11:08:23.497 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Starting...
+2025-01-06 11:08:23.623 [main] INFO  com.zaxxer.hikari.pool.HikariPool [] [anonymous] - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5503c7d
+2025-01-06 11:08:23.626 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Start completed.
+2025-01-06 11:08:23.887 [main] ERROR o.s.o.j.LocalContainerEntityManagerFactoryBean [] [anonymous] - Failed to initialize JPA EntityManagerFactory: A '@JoinColumn' references a column named 'schedule_id' but the target entity 'com.khoilnm.ims.model.Schedule' has no property which maps to this column
+2025-01-06 11:08:23.887 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext [] [anonymous] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: A '@JoinColumn' references a column named 'schedule_id' but the target entity 'com.khoilnm.ims.model.Schedule' has no property which maps to this column
+2025-01-06 11:08:23.888 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown initiated...
+2025-01-06 11:08:23.920 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown completed.
+2025-01-06 11:08:23.970 [main] ERROR o.s.boot.SpringApplication [] [anonymous] - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: A '@JoinColumn' references a column named 'schedule_id' but the target entity 'com.khoilnm.ims.model.Schedule' has no property which maps to this column
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1808)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:336)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:289)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:334)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:204)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
+	at com.khoilnm.ims.ImsApplication.main(ImsApplication.java:10)
+Caused by: org.hibernate.MappingException: A '@JoinColumn' references a column named 'schedule_id' but the target entity 'com.khoilnm.ims.model.Schedule' has no property which maps to this column
+	at org.hibernate.boot.model.internal.AnnotatedJoinColumns.getReferencedColumnsType(AnnotatedJoinColumns.java:320)
+	at org.hibernate.boot.model.internal.BinderHelper.createSyntheticPropertyReference(BinderHelper.java:152)
+	at org.hibernate.boot.model.internal.ToOneFkSecondPass.doSecondPass(ToOneFkSecondPass.java:114)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processEndOfQueue(InFlightMetadataCollectorImpl.java:1937)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processFkSecondPassesInOrder(InFlightMetadataCollectorImpl.java:1886)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processSecondPasses(InFlightMetadataCollectorImpl.java:1794)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:334)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1431)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1502)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1855)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804)
+	... 15 common frames omitted
+2025-01-06 11:10:39.639 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Starting ImsApplication using Java 17.0.12 with PID 15952 (C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes started by Le Nhat Minh Khoi in C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims)
+2025-01-06 11:10:39.641 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - No active profile set, falling back to 1 default profile: "default"
+2025-01-06 11:10:41.192 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Starting...
+2025-01-06 11:10:41.329 [main] INFO  com.zaxxer.hikari.pool.HikariPool [] [anonymous] - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3350ab4
+2025-01-06 11:10:41.331 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Start completed.
+2025-01-06 11:10:41.594 [main] ERROR o.s.o.j.LocalContainerEntityManagerFactoryBean [] [anonymous] - Failed to initialize JPA EntityManagerFactory: A '@JoinColumn' references a column named 'candidate_id' but the target entity 'com.khoilnm.ims.model.Candidate' has no property which maps to this column
+2025-01-06 11:10:41.594 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext [] [anonymous] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: A '@JoinColumn' references a column named 'candidate_id' but the target entity 'com.khoilnm.ims.model.Candidate' has no property which maps to this column
+2025-01-06 11:10:41.594 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown initiated...
+2025-01-06 11:10:41.616 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown completed.
+2025-01-06 11:10:41.666 [main] ERROR o.s.boot.SpringApplication [] [anonymous] - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: A '@JoinColumn' references a column named 'candidate_id' but the target entity 'com.khoilnm.ims.model.Candidate' has no property which maps to this column
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1808)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:336)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:289)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:334)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:204)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
+	at com.khoilnm.ims.ImsApplication.main(ImsApplication.java:10)
+Caused by: org.hibernate.MappingException: A '@JoinColumn' references a column named 'candidate_id' but the target entity 'com.khoilnm.ims.model.Candidate' has no property which maps to this column
+	at org.hibernate.boot.model.internal.AnnotatedJoinColumns.getReferencedColumnsType(AnnotatedJoinColumns.java:320)
+	at org.hibernate.boot.model.internal.BinderHelper.createSyntheticPropertyReference(BinderHelper.java:152)
+	at org.hibernate.boot.model.internal.ToOneFkSecondPass.doSecondPass(ToOneFkSecondPass.java:114)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processEndOfQueue(InFlightMetadataCollectorImpl.java:1937)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processFkSecondPassesInOrder(InFlightMetadataCollectorImpl.java:1886)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processSecondPasses(InFlightMetadataCollectorImpl.java:1794)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:334)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1431)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1502)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1855)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804)
+	... 15 common frames omitted
+2025-01-06 11:11:43.962 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Starting ImsApplication using Java 17.0.12 with PID 23288 (C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes started by Le Nhat Minh Khoi in C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims)
+2025-01-06 11:11:43.964 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - No active profile set, falling back to 1 default profile: "default"
+2025-01-06 11:11:45.453 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Starting...
+2025-01-06 11:11:45.566 [main] INFO  com.zaxxer.hikari.pool.HikariPool [] [anonymous] - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2ceb68a1
+2025-01-06 11:11:45.568 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Start completed.
+2025-01-06 11:11:47.393 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [] [anonymous] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-06 11:11:48.160 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Started ImsApplication in 4.763 seconds (process running for 5.331)
+2025-01-06 11:16:03.365 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown initiated...
+2025-01-06 11:16:03.372 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown completed.
+2025-01-06 11:16:05.701 [main] ERROR o.s.boot.SpringApplication [] [anonymous] - Application run failed
+java.lang.IllegalStateException: java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.core.pattern.parser.Compiler@79e18e38 - There is no conversion class registered for composite conversion word [clr]
+ERROR in ch.qos.logback.core.pattern.parser.Compiler@79e18e38 - Failed to create converter for [%clr] keyword
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:347)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initialize(LoggingApplicationListener.java:298)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEnvironmentPreparedEvent(LoggingApplicationListener.java:246)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEvent(LoggingApplicationListener.java:223)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:185)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:178)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:156)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:138)
+	at org.springframework.boot.context.event.EventPublishingRunListener.multicastInitialEvent(EventPublishingRunListener.java:136)
+	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:81)
+	at org.springframework.boot.SpringApplicationRunListeners.lambda$environmentPrepared$2(SpringApplicationRunListeners.java:64)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:118)
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:112)
+	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:63)
+	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:353)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:313)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
+	at com.khoilnm.ims.ImsApplication.main(ImsApplication.java:10)
+Caused by: java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.core.pattern.parser.Compiler@79e18e38 - There is no conversion class registered for composite conversion word [clr]
+ERROR in ch.qos.logback.core.pattern.parser.Compiler@79e18e38 - Failed to create converter for [%clr] keyword
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.reportConfigurationErrorsIfNecessary(LogbackLoggingSystem.java:291)
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.loadConfiguration(LogbackLoggingSystem.java:269)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initializeWithConventions(AbstractLoggingSystem.java:81)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initialize(AbstractLoggingSystem.java:61)
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.initialize(LogbackLoggingSystem.java:197)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:332)
+	... 19 common frames omitted
+2025-01-06 11:18:59.674 [main] ERROR o.s.boot.SpringApplication [] [anonymous] - Application run failed
+java.lang.IllegalStateException: java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.core.pattern.parser.Compiler@79e18e38 - There is no conversion class registered for composite conversion word [clr]
+ERROR in ch.qos.logback.core.pattern.parser.Compiler@79e18e38 - Failed to create converter for [%clr] keyword
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:347)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initialize(LoggingApplicationListener.java:298)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEnvironmentPreparedEvent(LoggingApplicationListener.java:246)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEvent(LoggingApplicationListener.java:223)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:185)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:178)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:156)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:138)
+	at org.springframework.boot.context.event.EventPublishingRunListener.multicastInitialEvent(EventPublishingRunListener.java:136)
+	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:81)
+	at org.springframework.boot.SpringApplicationRunListeners.lambda$environmentPrepared$2(SpringApplicationRunListeners.java:64)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:118)
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:112)
+	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:63)
+	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:353)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:313)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
+	at com.khoilnm.ims.ImsApplication.main(ImsApplication.java:10)
+Caused by: java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.core.pattern.parser.Compiler@79e18e38 - There is no conversion class registered for composite conversion word [clr]
+ERROR in ch.qos.logback.core.pattern.parser.Compiler@79e18e38 - Failed to create converter for [%clr] keyword
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.reportConfigurationErrorsIfNecessary(LogbackLoggingSystem.java:291)
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.loadConfiguration(LogbackLoggingSystem.java:269)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initializeWithConventions(AbstractLoggingSystem.java:81)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initialize(AbstractLoggingSystem.java:61)
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.initialize(LogbackLoggingSystem.java:197)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:332)
+	... 19 common frames omitted
+2025-01-06 11:20:41.437 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Starting ImsApplication using Java 17.0.12 with PID 4508 (C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes started by Le Nhat Minh Khoi in C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims)
+2025-01-06 11:20:41.438 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - No active profile set, falling back to 1 default profile: "default"
+2025-01-06 11:20:42.853 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Starting...
+2025-01-06 11:20:42.978 [main] INFO  com.zaxxer.hikari.pool.HikariPool [] [anonymous] - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@69c33ea2
+2025-01-06 11:20:42.980 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Start completed.
+2025-01-06 11:20:44.104 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [] [anonymous] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-06 11:20:44.731 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Started ImsApplication in 3.798 seconds (process running for 4.355)
+2025-01-06 11:21:37.036 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown initiated...
+2025-01-06 11:21:37.043 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown completed.
+2025-01-06 11:21:39.202 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Starting ImsApplication using Java 17.0.12 with PID 11240 (C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes started by Le Nhat Minh Khoi in C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims)
+2025-01-06 11:21:39.204 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - No active profile set, falling back to 1 default profile: "default"
+2025-01-06 11:21:40.603 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Starting...
+2025-01-06 11:21:40.726 [main] INFO  com.zaxxer.hikari.pool.HikariPool [] [anonymous] - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@9147ba2
+2025-01-06 11:21:40.729 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Start completed.
+2025-01-06 11:21:41.891 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [] [anonymous] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-06 11:21:42.619 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Started ImsApplication in 3.907 seconds (process running for 4.463)
+2025-01-06 11:22:20.649 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown initiated...
+2025-01-06 11:22:20.656 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown completed.
+2025-01-06 11:22:22.838 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Starting ImsApplication using Java 17.0.12 with PID 17368 (C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes started by Le Nhat Minh Khoi in C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims)
+2025-01-06 11:22:22.840 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - No active profile set, falling back to 1 default profile: "default"
+2025-01-06 11:22:24.443 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Starting...
+2025-01-06 11:22:24.570 [main] INFO  com.zaxxer.hikari.pool.HikariPool [] [anonymous] - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5b0e9e0c
+2025-01-06 11:22:24.572 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Start completed.
+2025-01-06 11:22:25.674 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [] [anonymous] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-06 11:22:26.312 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Started ImsApplication in 3.976 seconds (process running for 4.524)
+2025-01-06 11:22:42.481 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown initiated...
+2025-01-06 11:22:42.487 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown completed.

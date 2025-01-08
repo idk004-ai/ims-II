@@ -24,16 +24,16 @@ public class Job extends BaseEntity {
     private String description;
 
     @Column(name = "salary_from", nullable = false)
-    private Double salary_from;
+    private Double salaryFrom;
 
     @Column(name = "salary_to", nullable = false)
-    private Double salary_to;
+    private Double salaryTo;
 
     @Column(name = "start_date", nullable = false)
-    private LocalDate start_date;
+    private LocalDate startDate;
 
     @Column(name = "end_date", nullable = false)
-    private LocalDate end_date;
+    private LocalDate endDate;
 
     @Column(name = "level", nullable = false, columnDefinition = "TEXT")
     private String level;
@@ -45,12 +45,9 @@ public class Job extends BaseEntity {
     private String skills;
 
     @Column(name = "working_address", nullable = false, columnDefinition = "TEXT")
-    private String working_address;
+    private String workingAddress;
 
     @Column(name = "status_job_id", nullable = false)
-    private int job_status_id;
-
-//    @OneToMany(mappedBy = "job")
-//    List<JobApplication> jobApplications;
+    private int jobStatusId;
 
 }
