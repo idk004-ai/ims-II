@@ -502,3 +502,65 @@ java.lang.RuntimeException: Category USER_ROLE not found with value ADMIN
 2025-01-08 12:59:44.918 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Started ImsApplication in 4.616 seconds (process running for 4.967)
 2025-01-08 13:02:50.348 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown initiated...
 2025-01-08 13:02:50.356 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown completed.
+2025-01-08 20:00:15.328 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Starting ImsApplication using Java 22.0.1 with PID 11988 (C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes started by Le Nhat Minh Khoi in C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims)
+2025-01-08 20:00:15.328 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - No active profile set, falling back to 1 default profile: "default"
+2025-01-08 20:00:17.528 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Starting...
+2025-01-08 20:00:17.707 [main] INFO  com.zaxxer.hikari.pool.HikariPool [] [anonymous] - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@9cc0505
+2025-01-08 20:00:17.707 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Start completed.
+2025-01-08 20:00:19.988 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext [] [anonymous] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'securityConfig' defined in file [C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes\com\khoilnm\ims\configuration\SecurityConfig.class]: Unsatisfied dependency expressed through constructor parameter 2: Error creating bean with name 'authenticationServiceImpl' defined in file [C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes\com\khoilnm\ims\serviceImpl\AuthenticationServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'authenticationManager' defined in class path resource [com/khoilnm/ims/configuration/BeanConfig.class]: Failed to instantiate [org.springframework.security.authentication.AuthenticationManager]: Factory method 'authenticationManager' threw exception with message: Error creating bean with name 'securityConfig': Requested bean is currently in creation: Is there an unresolvable circular reference or an asynchronous initialization dependency?
+2025-01-08 20:00:19.993 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown initiated...
+2025-01-08 20:00:20.003 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown completed.
+2025-01-08 20:00:20.073 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter [] [anonymous] - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The dependencies of some of the beans in the application context form a cycle:
+
+┌─────┐
+|  securityConfig defined in file [C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes\com\khoilnm\ims\configuration\SecurityConfig.class]
+↑     ↓
+|  authenticationServiceImpl defined in file [C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes\com\khoilnm\ims\serviceImpl\AuthenticationServiceImpl.class]
+↑     ↓
+|  authenticationManager defined in class path resource [com/khoilnm/ims/configuration/BeanConfig.class]
+└─────┘
+
+
+Action:
+
+Relying upon circular references is discouraged and they are prohibited by default. Update your application to remove the dependency cycle between beans. As a last resort, it may be possible to break the cycle automatically by setting spring.main.allow-circular-references to true.
+
+2025-01-08 20:20:36.218 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Starting ImsApplication using Java 22.0.1 with PID 572 (C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes started by Le Nhat Minh Khoi in C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims)
+2025-01-08 20:20:36.218 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - No active profile set, falling back to 1 default profile: "default"
+2025-01-08 20:20:37.898 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Starting...
+2025-01-08 20:20:38.038 [main] INFO  com.zaxxer.hikari.pool.HikariPool [] [anonymous] - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@647ff23e
+2025-01-08 20:20:38.038 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Start completed.
+2025-01-08 20:20:40.030 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext [] [anonymous] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'securityConfig' defined in file [C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes\com\khoilnm\ims\configuration\SecurityConfig.class]: Unsatisfied dependency expressed through constructor parameter 2: Error creating bean with name 'authenticationServiceImpl' defined in file [C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes\com\khoilnm\ims\serviceImpl\AuthenticationServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'authenticationManager' defined in class path resource [com/khoilnm/ims/configuration/BeanConfig.class]: Failed to instantiate [org.springframework.security.authentication.AuthenticationManager]: Factory method 'authenticationManager' threw exception with message: Error creating bean with name 'securityConfig': Requested bean is currently in creation: Is there an unresolvable circular reference or an asynchronous initialization dependency?
+2025-01-08 20:20:40.035 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown initiated...
+2025-01-08 20:20:40.037 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown completed.
+2025-01-08 20:20:40.108 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter [] [anonymous] - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The dependencies of some of the beans in the application context form a cycle:
+
+┌─────┐
+|  securityConfig defined in file [C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes\com\khoilnm\ims\configuration\SecurityConfig.class]
+↑     ↓
+|  authenticationServiceImpl defined in file [C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes\com\khoilnm\ims\serviceImpl\AuthenticationServiceImpl.class]
+↑     ↓
+|  authenticationManager defined in class path resource [com/khoilnm/ims/configuration/BeanConfig.class]
+└─────┘
+
+
+Action:
+
+Relying upon circular references is discouraged and they are prohibited by default. Update your application to remove the dependency cycle between beans. As a last resort, it may be possible to break the cycle automatically by setting spring.main.allow-circular-references to true.
+

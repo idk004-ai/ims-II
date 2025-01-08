@@ -7,6 +7,7 @@ import org.springframework.security.core.Authentication;
 
 public interface JwtService {
     String createAccessToken(User user);
+
     String createRefreshToken(User user);
 
     void setAccessTokenCookie(HttpServletResponse response, String accessToken);
@@ -18,4 +19,6 @@ public interface JwtService {
     String getEmailFromRefreshToken(String refreshToken);
 
     boolean validateRefreshToken(String refreshToken);
+
+    void removeByEmail(String email);
 }

@@ -88,4 +88,11 @@ public class AuthenticationController {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(e.getMessage());
         }
     }
+
+    @PostMapping("/logout")
+    public ResponseEntity<?> postMethodName(HttpServletRequest request, HttpServletResponse response,
+                                            Authentication authentication) {
+        authenticationService.logout(request, response, authentication);
+        return ResponseEntity.ok().build();
+    }
 }

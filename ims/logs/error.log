@@ -370,3 +370,49 @@ java.lang.RuntimeException: Category USER_ROLE not found with value ADMIN
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
 	at com.khoilnm.ims.ImsApplication.main(ImsApplication.java:16)
+2025-01-08 20:00:20.073 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter [] [anonymous] - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The dependencies of some of the beans in the application context form a cycle:
+
+┌─────┐
+|  securityConfig defined in file [C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes\com\khoilnm\ims\configuration\SecurityConfig.class]
+↑     ↓
+|  authenticationServiceImpl defined in file [C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes\com\khoilnm\ims\serviceImpl\AuthenticationServiceImpl.class]
+↑     ↓
+|  authenticationManager defined in class path resource [com/khoilnm/ims/configuration/BeanConfig.class]
+└─────┘
+
+
+Action:
+
+Relying upon circular references is discouraged and they are prohibited by default. Update your application to remove the dependency cycle between beans. As a last resort, it may be possible to break the cycle automatically by setting spring.main.allow-circular-references to true.
+
+2025-01-08 20:20:40.108 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter [] [anonymous] - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The dependencies of some of the beans in the application context form a cycle:
+
+┌─────┐
+|  securityConfig defined in file [C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes\com\khoilnm\ims\configuration\SecurityConfig.class]
+↑     ↓
+|  authenticationServiceImpl defined in file [C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes\com\khoilnm\ims\serviceImpl\AuthenticationServiceImpl.class]
+↑     ↓
+|  authenticationManager defined in class path resource [com/khoilnm/ims/configuration/BeanConfig.class]
+└─────┘
+
+
+Action:
+
+Relying upon circular references is discouraged and they are prohibited by default. Update your application to remove the dependency cycle between beans. As a last resort, it may be possible to break the cycle automatically by setting spring.main.allow-circular-references to true.
+

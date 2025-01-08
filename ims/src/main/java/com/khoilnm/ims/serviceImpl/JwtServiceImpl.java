@@ -188,6 +188,14 @@ public class JwtServiceImpl implements JwtService {
         return validateToken(refreshToken, ConstantUtils.JWT_REFRESH_TOKEN);
     }
 
+    /**
+     * @param email
+     */
+    @Override
+    public void removeByEmail(String email) {
+        refreshTokenRepository.deleteByEmail(email);
+    }
+
     private boolean validateToken(String token, String tokenType) {
         try {
             Claims claims = Jwts.parserBuilder()
@@ -246,7 +254,7 @@ public class JwtServiceImpl implements JwtService {
         try {
             log.debug("Saving refresh token for user: {}", user.getEmail());
 
-            refreshTokenRepository.deleteByEmail(user.getEmail());
+            removeByEmail(user.getEmail());
 
             RefreshToken refreshTokenObject = RefreshToken.builder()
                     .user(user)
