@@ -12,12 +12,14 @@ import java.util.Optional;
 @Repository
 public interface RefreshTokenRepository extends JpaRepository<RefreshToken, Integer> {
 
+    boolean existsByUserEmail(String email);
+
     @Modifying
     @Query("""
                 DELETE FROM RefreshToken rt
                     WHERE rt.user.email = :email
             """)
-    void deleteByEmail(@Param("email") String email);
+    int deleteByEmail(@Param("email") String email);
 
     @Query("SELECT rt FROM RefreshToken rt " +
             "WHERE rt.user.email = :email " +
@@ -27,4 +29,5 @@ public interface RefreshTokenRepository extends JpaRepository<RefreshToken, Inte
             @Param("email") String email,
             @Param("token") String token,
             @Param("series") String series);
+
 }

@@ -32,6 +32,8 @@ public class UserWriteServiceImpl implements UserWriteService {
                 .departmentId(ConstantUtils.IT)
                 .roleId(ConstantUtils.ADMIN_ROLE)
                 .enabled(true)
+                .deleteFlag(false)
+                .phone(registrationDTO.getPhone())
                 .build();
         userRepository.save(user);
         return user;

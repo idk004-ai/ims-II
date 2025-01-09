@@ -41,7 +41,9 @@ public class AuthenticationController {
     public ResponseEntity<?> register(@RequestBody @Valid RegistrationDTO request) {
         try {
             log.info("Registering user with email: {}", request.getEmail());
-            userReadService.findByEmail(request.getEmail());
+            if (userReadService.findByEmail(request.getEmail()).isPresent()) {
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Email already exists");
+            }
             userWriteService.createUser(request);
             return ResponseEntity.accepted().build();
         } catch (Exception e) {
@@ -52,7 +54,7 @@ public class AuthenticationController {
     @PostMapping("/login")
     public ResponseEntity<?> login(@Valid @RequestBody LoginDTO loginDTO, HttpServletRequest request, HttpServletResponse response) {
         try {
-            Authentication authentication = authenticationService.authenticate(loginDTO.getUsername(), loginDTO.getPassword());
+            Authentication authentication = authenticationService.authenticate(loginDTO.getEmail(), loginDTO.getPassword());
             User user = (User) authentication.getPrincipal();
             String accessToken = jwtService.createAccessToken(user);
             String refreshToken = jwtService.createRefreshToken(user);
@@ -90,7 +92,7 @@ public class AuthenticationController {
     }
 
     @PostMapping("/logout")
-    public ResponseEntity<?> postMethodName(HttpServletRequest request, HttpServletResponse response,
+    public ResponseEntity<?> logout(HttpServletRequest request, HttpServletResponse response,
                                             Authentication authentication) {
         authenticationService.logout(request, response, authentication);
         return ResponseEntity.ok().build();

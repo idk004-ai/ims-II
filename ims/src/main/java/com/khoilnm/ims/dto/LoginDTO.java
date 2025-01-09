@@ -16,7 +16,7 @@ public class LoginDTO {
     @NotNull(message = "ME001")
     @NotBlank(message = "ME001")
     @Email(message = "ME001")
-    private String username;
+    private String email;
 
     @NotNull(message = "ME002")
     @NotNull(message = "ME002")

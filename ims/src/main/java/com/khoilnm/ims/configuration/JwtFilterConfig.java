@@ -5,6 +5,7 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -17,13 +18,13 @@ import java.io.IOException;
 import java.util.List;
 
 @Component
+@Slf4j
 public class JwtFilterConfig extends OncePerRequestFilter {
 
     private final JwtService jwtService;
     private final UserDetailsService userDetailsService;
     private final List<String> publicPaths = List.of(
-            "/api/v1/auth/register",
-            "/api/v1/auth/login"
+            "/api/v1/auth"
     );
 
     public JwtFilterConfig(JwtService jwtService, UserDetailsService userDetailsService) {
@@ -49,10 +50,11 @@ public class JwtFilterConfig extends OncePerRequestFilter {
             FilterChain filterChain
     ) throws ServletException, IOException {
         if (isPublicPath(request.getServletPath())) {
+            log.info("Skipping JWT filter for public path: {}", request.getServletPath());
             filterChain.doFilter(request, response);
             return;
         }
-
+        log.info("Processing JWT filter for path: {}", request.getServletPath());
         final String refreshToken = jwtService.getRefreshTokenFromCookie(request);
         if (refreshToken == null) {
             filterChain.doFilter(request, response);

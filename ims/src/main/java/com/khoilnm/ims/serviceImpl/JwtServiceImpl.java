@@ -59,7 +59,7 @@ public class JwtServiceImpl implements JwtService {
     public String createAccessToken(User user) {
 
         try {
-            log.debug("Creating access token for user: {}", user.getEmail());
+            log.info("Creating access token for user: {}", user.getEmail());
 
             Date date = new Date();
             Date expirationDate = new Date(date.getTime() + accessTokenExpirationTime * 1000);
@@ -92,7 +92,7 @@ public class JwtServiceImpl implements JwtService {
     @Override
     public String createRefreshToken(User user) {
         try {
-            log.debug("Creating refresh token for user: {}", user.getName());
+            log.info("Creating refresh token for user: {}", user.getName());
 
             Date now = new Date();
             Date expiryDate = new Date(now.getTime() + refreshTokenExpirationTime * 1000);
@@ -154,6 +154,30 @@ public class JwtServiceImpl implements JwtService {
     }
 
     /**
+     * @param response
+     */
+    @Override
+    public void removeRefreshTokenCookie(HttpServletResponse response) {
+        Cookie refreshTokenCookie = new Cookie(ConstantUtils.JWT_REFRESH_TOKEN, null);
+        refreshTokenCookie.setPath("/");
+        refreshTokenCookie.setHttpOnly(true);
+        refreshTokenCookie.setMaxAge(0);
+        response.addCookie(refreshTokenCookie);
+    }
+
+    /**
+     * @param response
+     */
+    @Override
+    public void removeAccessTokenCookie(HttpServletResponse response) {
+        Cookie accessCookie = new Cookie(ConstantUtils.JWT_ACCESS_TOKEN, null);
+        accessCookie.setPath("/");
+        accessCookie.setHttpOnly(true);
+        accessCookie.setMaxAge(0);
+        response.addCookie(accessCookie);
+    }
+
+    /**
      * @param request
      * @return
      */
@@ -188,12 +212,25 @@ public class JwtServiceImpl implements JwtService {
         return validateToken(refreshToken, ConstantUtils.JWT_REFRESH_TOKEN);
     }
 
-    /**
-     * @param email
-     */
     @Override
+    @Transactional
     public void removeByEmail(String email) {
-        refreshTokenRepository.deleteByEmail(email);
+        try {
+            if (!refreshTokenRepository.existsByUserEmail(email)) {
+                log.info("No refresh token found for email: {}", email);
+                return;
+            }
+
+            int deletedCount = refreshTokenRepository.deleteByEmail(email);
+            if (deletedCount > 0) {
+                log.info("Successfully deleted {} refresh token(s) for email: {}", deletedCount, email);
+            } else {
+                log.info("No refresh tokens were deleted for email: {}", email);
+            }
+        } catch (Exception e) {
+            log.error("Error while deleting refresh token for email {}: {}", email, e.getMessage());
+            throw new TokenCreationException("Error when deleting refresh token", e);
+        }
     }
 
     private boolean validateToken(String token, String tokenType) {
@@ -252,19 +289,23 @@ public class JwtServiceImpl implements JwtService {
     @Transactional(readOnly = true)
     protected void saveRefreshToken(User user, String refreshToken, String tokenSeries, Date expiryDate) {
         try {
-            log.debug("Saving refresh token for user: {}", user.getEmail());
+            log.info("Saving refresh token for user: {}", user.getEmail());
 
             removeByEmail(user.getEmail());
+
+            log.info("Length of refresh token: {}", refreshToken.length());
+            log.info("Refresh token: {}", refreshToken);
 
             RefreshToken refreshTokenObject = RefreshToken.builder()
                     .user(user)
                     .token(refreshToken)
                     .series(tokenSeries)
                     .expiryDate(expiryDate)
+                    .deleteFlag(false)
                     .build();
 
             refreshTokenRepository.save(refreshTokenObject);
-            log.debug("Refresh token saved to database for user: {}", user.getEmail());
+            log.info("Refresh token saved to database for user: {}", user.getEmail());
         } catch (Exception e) {
             log.error("Error when saving refresh token: {}", e.getMessage());
             throw new TokenCreationException("Error when saving refresh token", e);

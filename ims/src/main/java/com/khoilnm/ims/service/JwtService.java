@@ -14,6 +14,10 @@ public interface JwtService {
 
     void setRefreshTokenCookie(HttpServletResponse response, String refreshToken);
 
+    void removeRefreshTokenCookie(HttpServletResponse response);
+
+    void removeAccessTokenCookie(HttpServletResponse response);
+
     String getRefreshTokenFromCookie(HttpServletRequest request);
 
     String getEmailFromRefreshToken(String refreshToken);

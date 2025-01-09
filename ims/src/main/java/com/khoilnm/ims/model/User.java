@@ -59,10 +59,10 @@ public class User extends BaseEntity implements UserDetails, Principal {
     @Column(nullable = false)
     private String phone;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private LocalDate dob;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String address;
 
     @Column(nullable = false)

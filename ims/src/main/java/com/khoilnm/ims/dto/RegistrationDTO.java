@@ -13,18 +13,21 @@ import lombok.Setter;
 @Builder
 public class RegistrationDTO {
 
-    @NotEmpty(message = "{firstname.blank}")
-    @NotBlank(message = "{firstname.blank}")
+    @NotEmpty(message = "{ME005}")
+    @NotBlank(message = "{ME005}")
     private String firstname;
-    @NotEmpty(message = "{lastname.blank}")
-    @NotBlank(message = "{lastname.blank}")
+    @NotEmpty(message = "{ME005}")
+    @NotBlank(message = "{ME005}")
     private String lastname;
-    @Email(message = "{email.invalid}")
-    @NotEmpty(message = "{email.blank}")
-    @NotBlank(message = "{email.blank}")
+    @Email(message = "{ME005}")
+    @NotEmpty(message = "{ME005}")
+    @NotBlank(message = "{ME005}")
     private String email;
-    @NotEmpty(message = "{password.blank}")
-    @NotBlank(message = "{password.blank}")
-    @Size(min = 8, message = "{password.notenough}")
+    @NotEmpty(message = "{ME005}")
+    @NotBlank(message = "{ME005}")
+    @Size(min = 8, message = "{ME006}")
     private String password;
+    @NotEmpty(message = "{ME005}")
+    @NotBlank(message = "{ME005}")
+    private String phone;
 }

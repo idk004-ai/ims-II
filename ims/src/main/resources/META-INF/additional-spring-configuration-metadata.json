@@ -9,6 +9,16 @@
       "name": "app.jwt.refresh_token.expiration_time",
       "type": "java.lang.String",
       "description": "Description for app.jwt.refresh_token.expiration."
+    },
+    {
+      "name": "app.jwt.secret-key",
+      "type": "java.lang.String",
+      "description": "Description for app.jwt.secret-key."
+    },
+    {
+      "name": "spring.cached.path",
+      "type": "java.lang.String",
+      "description": "Description for spring.cached.path."
     }
   ]
 }

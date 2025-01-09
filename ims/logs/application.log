@@ -1,566 +1,731 @@
-2025-01-08 12:02:17.182 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Starting ImsApplication using Java 22.0.1 with PID 5724 (C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes started by Le Nhat Minh Khoi in C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims)
-2025-01-08 12:02:17.184 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - No active profile set, falling back to 1 default profile: "default"
-2025-01-08 12:02:19.165 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Starting...
-2025-01-08 12:02:19.340 [main] INFO  com.zaxxer.hikari.pool.HikariPool [] [anonymous] - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@370225c7
-2025-01-08 12:02:19.342 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Start completed.
-2025-01-08 12:02:20.963 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext [] [anonymous] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'beanConfig' defined in file [C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes\com\khoilnm\ims\configuration\BeanConfig.class]: Unsatisfied dependency expressed through constructor parameter 1: Error creating bean with name 'masterServiceImpl' defined in file [C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes\com\khoilnm\ims\serviceImpl\MasterServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'masterRepository' defined in com.khoilnm.ims.repository.MasterRepository defined in @EnableJpaRepositories declared on ImsApplication: Could not create query for public abstract java.util.Optional com.khoilnm.ims.repository.MasterRepository.findByCategoryAndValue(java.lang.String,java.lang.String); Reason: Failed to create query for method public abstract java.util.Optional com.khoilnm.ims.repository.MasterRepository.findByCategoryAndValue(java.lang.String,java.lang.String); No property 'value' found for type 'Master'
-2025-01-08 12:02:20.966 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown initiated...
-2025-01-08 12:02:20.975 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown completed.
-2025-01-08 12:02:20.998 [main] ERROR o.s.boot.SpringApplication [] [anonymous] - Application run failed
-org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'beanConfig' defined in file [C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes\com\khoilnm\ims\configuration\BeanConfig.class]: Unsatisfied dependency expressed through constructor parameter 1: Error creating bean with name 'masterServiceImpl' defined in file [C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes\com\khoilnm\ims\serviceImpl\MasterServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'masterRepository' defined in com.khoilnm.ims.repository.MasterRepository defined in @EnableJpaRepositories declared on ImsApplication: Could not create query for public abstract java.util.Optional com.khoilnm.ims.repository.MasterRepository.findByCategoryAndValue(java.lang.String,java.lang.String); Reason: Failed to create query for method public abstract java.util.Optional com.khoilnm.ims.repository.MasterRepository.findByCategoryAndValue(java.lang.String,java.lang.String); No property 'value' found for type 'Master'
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804)
-	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1377)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1214)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:563)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:336)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:289)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:334)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:413)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1357)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1187)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:563)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:336)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:289)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:334)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:204)
-	at org.springframework.context.support.AbstractApplicationContext.initMessageSource(AbstractApplicationContext.java:819)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:615)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
-	at com.khoilnm.ims.ImsApplication.main(ImsApplication.java:16)
-Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'masterServiceImpl' defined in file [C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes\com\khoilnm\ims\serviceImpl\MasterServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'masterRepository' defined in com.khoilnm.ims.repository.MasterRepository defined in @EnableJpaRepositories declared on ImsApplication: Could not create query for public abstract java.util.Optional com.khoilnm.ims.repository.MasterRepository.findByCategoryAndValue(java.lang.String,java.lang.String); Reason: Failed to create query for method public abstract java.util.Optional com.khoilnm.ims.repository.MasterRepository.findByCategoryAndValue(java.lang.String,java.lang.String); No property 'value' found for type 'Master'
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804)
-	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1377)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1214)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:563)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:336)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:289)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:334)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
-	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1631)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1519)
-	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913)
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791)
-	... 27 common frames omitted
-Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'masterRepository' defined in com.khoilnm.ims.repository.MasterRepository defined in @EnableJpaRepositories declared on ImsApplication: Could not create query for public abstract java.util.Optional com.khoilnm.ims.repository.MasterRepository.findByCategoryAndValue(java.lang.String,java.lang.String); Reason: Failed to create query for method public abstract java.util.Optional com.khoilnm.ims.repository.MasterRepository.findByCategoryAndValue(java.lang.String,java.lang.String); No property 'value' found for type 'Master'
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1808)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:336)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:289)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:334)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1573)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1519)
-	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913)
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791)
-	... 41 common frames omitted
-Caused by: org.springframework.data.repository.query.QueryCreationException: Could not create query for public abstract java.util.Optional com.khoilnm.ims.repository.MasterRepository.findByCategoryAndValue(java.lang.String,java.lang.String); Reason: Failed to create query for method public abstract java.util.Optional com.khoilnm.ims.repository.MasterRepository.findByCategoryAndValue(java.lang.String,java.lang.String); No property 'value' found for type 'Master'
-	at org.springframework.data.repository.query.QueryCreationException.create(QueryCreationException.java:101)
-	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lookupQuery(QueryExecutorMethodInterceptor.java:120)
-	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.mapMethodsToQuery(QueryExecutorMethodInterceptor.java:104)
-	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lambda$new$0(QueryExecutorMethodInterceptor.java:92)
-	at java.base/java.util.Optional.map(Optional.java:260)
-	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.<init>(QueryExecutorMethodInterceptor.java:92)
-	at org.springframework.data.repository.core.support.RepositoryFactorySupport.getRepository(RepositoryFactorySupport.java:440)
-	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.lambda$afterPropertiesSet$4(RepositoryFactoryBeanSupport.java:350)
-	at org.springframework.data.util.Lazy.getNullable(Lazy.java:135)
-	at org.springframework.data.util.Lazy.get(Lazy.java:113)
-	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.afterPropertiesSet(RepositoryFactoryBeanSupport.java:356)
-	at org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean.afterPropertiesSet(JpaRepositoryFactoryBean.java:132)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1855)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804)
-	... 51 common frames omitted
-Caused by: java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.Optional com.khoilnm.ims.repository.MasterRepository.findByCategoryAndValue(java.lang.String,java.lang.String); No property 'value' found for type 'Master'
-	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.<init>(PartTreeJpaQuery.java:107)
-	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:128)
-	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateIfNotFoundQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:262)
-	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$AbstractQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:99)
-	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lookupQuery(QueryExecutorMethodInterceptor.java:116)
-	... 63 common frames omitted
-Caused by: org.springframework.data.mapping.PropertyReferenceException: No property 'value' found for type 'Master'
-	at org.springframework.data.mapping.PropertyPath.<init>(PropertyPath.java:94)
-	at org.springframework.data.mapping.PropertyPath.create(PropertyPath.java:455)
-	at org.springframework.data.mapping.PropertyPath.create(PropertyPath.java:431)
-	at org.springframework.data.mapping.PropertyPath.lambda$from$0(PropertyPath.java:384)
-	at java.base/java.util.concurrent.ConcurrentMap.computeIfAbsent(ConcurrentMap.java:330)
-	at org.springframework.data.mapping.PropertyPath.from(PropertyPath.java:366)
-	at org.springframework.data.mapping.PropertyPath.from(PropertyPath.java:344)
-	at org.springframework.data.repository.query.parser.Part.<init>(Part.java:81)
-	at org.springframework.data.repository.query.parser.PartTree$OrPart.lambda$new$0(PartTree.java:259)
-	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:212)
-	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:194)
-	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1024)
-	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:556)
-	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:546)
-	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
-	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265)
-	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:702)
-	at org.springframework.data.repository.query.parser.PartTree$OrPart.<init>(PartTree.java:260)
-	at org.springframework.data.repository.query.parser.PartTree$Predicate.lambda$new$0(PartTree.java:389)
-	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:212)
-	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:194)
-	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1024)
-	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:556)
-	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:546)
-	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
-	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265)
-	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:702)
-	at org.springframework.data.repository.query.parser.PartTree$Predicate.<init>(PartTree.java:390)
-	at org.springframework.data.repository.query.parser.PartTree.<init>(PartTree.java:103)
-	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.<init>(PartTreeJpaQuery.java:101)
-	... 67 common frames omitted
-2025-01-08 12:03:57.032 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Starting ImsApplication using Java 22.0.1 with PID 824 (C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes started by Le Nhat Minh Khoi in C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims)
-2025-01-08 12:03:57.034 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - No active profile set, falling back to 1 default profile: "default"
-2025-01-08 12:03:58.436 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Starting...
-2025-01-08 12:03:58.576 [main] INFO  com.zaxxer.hikari.pool.HikariPool [] [anonymous] - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5403431a
-2025-01-08 12:03:58.578 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Start completed.
-2025-01-08 12:03:59.887 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext [] [anonymous] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'beanConfig' defined in file [C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes\com\khoilnm\ims\configuration\BeanConfig.class]: Unsatisfied dependency expressed through constructor parameter 1: Error creating bean with name 'masterServiceImpl' defined in file [C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes\com\khoilnm\ims\serviceImpl\MasterServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'masterRepository' defined in com.khoilnm.ims.repository.MasterRepository defined in @EnableJpaRepositories declared on ImsApplication: Could not create query for public abstract java.util.Optional com.khoilnm.ims.repository.MasterRepository.findByCategoryAndValue(java.lang.String,java.lang.String); Reason: Failed to create query for method public abstract java.util.Optional com.khoilnm.ims.repository.MasterRepository.findByCategoryAndValue(java.lang.String,java.lang.String); No property 'value' found for type 'Master'
-2025-01-08 12:03:59.890 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown initiated...
-2025-01-08 12:03:59.897 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown completed.
-2025-01-08 12:03:59.941 [main] ERROR o.s.boot.SpringApplication [] [anonymous] - Application run failed
-org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'beanConfig' defined in file [C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes\com\khoilnm\ims\configuration\BeanConfig.class]: Unsatisfied dependency expressed through constructor parameter 1: Error creating bean with name 'masterServiceImpl' defined in file [C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes\com\khoilnm\ims\serviceImpl\MasterServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'masterRepository' defined in com.khoilnm.ims.repository.MasterRepository defined in @EnableJpaRepositories declared on ImsApplication: Could not create query for public abstract java.util.Optional com.khoilnm.ims.repository.MasterRepository.findByCategoryAndValue(java.lang.String,java.lang.String); Reason: Failed to create query for method public abstract java.util.Optional com.khoilnm.ims.repository.MasterRepository.findByCategoryAndValue(java.lang.String,java.lang.String); No property 'value' found for type 'Master'
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804)
-	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1377)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1214)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:563)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:336)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:289)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:334)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:413)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1357)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1187)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:563)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:336)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:289)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:334)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:204)
-	at org.springframework.context.support.AbstractApplicationContext.initMessageSource(AbstractApplicationContext.java:819)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:615)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
-	at com.khoilnm.ims.ImsApplication.main(ImsApplication.java:16)
-Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'masterServiceImpl' defined in file [C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes\com\khoilnm\ims\serviceImpl\MasterServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'masterRepository' defined in com.khoilnm.ims.repository.MasterRepository defined in @EnableJpaRepositories declared on ImsApplication: Could not create query for public abstract java.util.Optional com.khoilnm.ims.repository.MasterRepository.findByCategoryAndValue(java.lang.String,java.lang.String); Reason: Failed to create query for method public abstract java.util.Optional com.khoilnm.ims.repository.MasterRepository.findByCategoryAndValue(java.lang.String,java.lang.String); No property 'value' found for type 'Master'
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804)
-	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1377)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1214)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:563)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:336)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:289)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:334)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
-	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1631)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1519)
-	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913)
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791)
-	... 27 common frames omitted
-Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'masterRepository' defined in com.khoilnm.ims.repository.MasterRepository defined in @EnableJpaRepositories declared on ImsApplication: Could not create query for public abstract java.util.Optional com.khoilnm.ims.repository.MasterRepository.findByCategoryAndValue(java.lang.String,java.lang.String); Reason: Failed to create query for method public abstract java.util.Optional com.khoilnm.ims.repository.MasterRepository.findByCategoryAndValue(java.lang.String,java.lang.String); No property 'value' found for type 'Master'
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1808)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:336)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:289)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:334)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1573)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1519)
-	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913)
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791)
-	... 41 common frames omitted
-Caused by: org.springframework.data.repository.query.QueryCreationException: Could not create query for public abstract java.util.Optional com.khoilnm.ims.repository.MasterRepository.findByCategoryAndValue(java.lang.String,java.lang.String); Reason: Failed to create query for method public abstract java.util.Optional com.khoilnm.ims.repository.MasterRepository.findByCategoryAndValue(java.lang.String,java.lang.String); No property 'value' found for type 'Master'
-	at org.springframework.data.repository.query.QueryCreationException.create(QueryCreationException.java:101)
-	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lookupQuery(QueryExecutorMethodInterceptor.java:120)
-	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.mapMethodsToQuery(QueryExecutorMethodInterceptor.java:104)
-	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lambda$new$0(QueryExecutorMethodInterceptor.java:92)
-	at java.base/java.util.Optional.map(Optional.java:260)
-	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.<init>(QueryExecutorMethodInterceptor.java:92)
-	at org.springframework.data.repository.core.support.RepositoryFactorySupport.getRepository(RepositoryFactorySupport.java:440)
-	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.lambda$afterPropertiesSet$4(RepositoryFactoryBeanSupport.java:350)
-	at org.springframework.data.util.Lazy.getNullable(Lazy.java:135)
-	at org.springframework.data.util.Lazy.get(Lazy.java:113)
-	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.afterPropertiesSet(RepositoryFactoryBeanSupport.java:356)
-	at org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean.afterPropertiesSet(JpaRepositoryFactoryBean.java:132)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1855)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804)
-	... 51 common frames omitted
-Caused by: java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.Optional com.khoilnm.ims.repository.MasterRepository.findByCategoryAndValue(java.lang.String,java.lang.String); No property 'value' found for type 'Master'
-	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.<init>(PartTreeJpaQuery.java:107)
-	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:128)
-	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateIfNotFoundQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:262)
-	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$AbstractQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:99)
-	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lookupQuery(QueryExecutorMethodInterceptor.java:116)
-	... 63 common frames omitted
-Caused by: org.springframework.data.mapping.PropertyReferenceException: No property 'value' found for type 'Master'
-	at org.springframework.data.mapping.PropertyPath.<init>(PropertyPath.java:94)
-	at org.springframework.data.mapping.PropertyPath.create(PropertyPath.java:455)
-	at org.springframework.data.mapping.PropertyPath.create(PropertyPath.java:431)
-	at org.springframework.data.mapping.PropertyPath.lambda$from$0(PropertyPath.java:384)
-	at java.base/java.util.concurrent.ConcurrentMap.computeIfAbsent(ConcurrentMap.java:330)
-	at org.springframework.data.mapping.PropertyPath.from(PropertyPath.java:366)
-	at org.springframework.data.mapping.PropertyPath.from(PropertyPath.java:344)
-	at org.springframework.data.repository.query.parser.Part.<init>(Part.java:81)
-	at org.springframework.data.repository.query.parser.PartTree$OrPart.lambda$new$0(PartTree.java:259)
-	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:212)
-	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:194)
-	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1024)
-	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:556)
-	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:546)
-	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
-	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265)
-	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:702)
-	at org.springframework.data.repository.query.parser.PartTree$OrPart.<init>(PartTree.java:260)
-	at org.springframework.data.repository.query.parser.PartTree$Predicate.lambda$new$0(PartTree.java:389)
-	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:212)
-	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:194)
-	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1024)
-	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:556)
-	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:546)
-	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
-	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265)
-	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:702)
-	at org.springframework.data.repository.query.parser.PartTree$Predicate.<init>(PartTree.java:390)
-	at org.springframework.data.repository.query.parser.PartTree.<init>(PartTree.java:103)
-	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.<init>(PartTreeJpaQuery.java:101)
-	... 67 common frames omitted
-2025-01-08 12:04:47.590 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Starting ImsApplication using Java 22.0.1 with PID 8072 (C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes started by Le Nhat Minh Khoi in C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims)
-2025-01-08 12:04:47.592 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - No active profile set, falling back to 1 default profile: "default"
-2025-01-08 12:04:49.021 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Starting...
-2025-01-08 12:04:49.155 [main] INFO  com.zaxxer.hikari.pool.HikariPool [] [anonymous] - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@370225c7
-2025-01-08 12:04:49.157 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Start completed.
-2025-01-08 12:04:50.978 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext [] [anonymous] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'beanConfig' defined in file [C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes\com\khoilnm\ims\configuration\BeanConfig.class]: Unsatisfied dependency expressed through constructor parameter 1: Error creating bean with name 'masterServiceImpl' defined in file [C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes\com\khoilnm\ims\serviceImpl\MasterServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 1: Error creating bean with name 'messageSource': Requested bean is currently in creation: Is there an unresolvable circular reference or an asynchronous initialization dependency?
-2025-01-08 12:04:50.981 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown initiated...
-2025-01-08 12:04:51.000 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown completed.
-2025-01-08 12:04:51.021 [main] ERROR o.s.boot.SpringApplication [] [anonymous] - Application run failed
-org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'beanConfig' defined in file [C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes\com\khoilnm\ims\configuration\BeanConfig.class]: Unsatisfied dependency expressed through constructor parameter 1: Error creating bean with name 'masterServiceImpl' defined in file [C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes\com\khoilnm\ims\serviceImpl\MasterServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 1: Error creating bean with name 'messageSource': Requested bean is currently in creation: Is there an unresolvable circular reference or an asynchronous initialization dependency?
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804)
-	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1377)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1214)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:563)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:336)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:289)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:334)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:413)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1357)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1187)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:563)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:336)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:289)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:334)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:204)
-	at org.springframework.context.support.AbstractApplicationContext.initMessageSource(AbstractApplicationContext.java:819)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:615)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
-	at com.khoilnm.ims.ImsApplication.main(ImsApplication.java:16)
-Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'masterServiceImpl' defined in file [C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes\com\khoilnm\ims\serviceImpl\MasterServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 1: Error creating bean with name 'messageSource': Requested bean is currently in creation: Is there an unresolvable circular reference or an asynchronous initialization dependency?
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804)
-	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1377)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1214)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:563)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:336)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:289)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:334)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
-	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1631)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1519)
-	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913)
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791)
-	... 27 common frames omitted
-Caused by: org.springframework.beans.factory.BeanCurrentlyInCreationException: Error creating bean with name 'messageSource': Requested bean is currently in creation: Is there an unresolvable circular reference or an asynchronous initialization dependency?
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.beforeSingletonCreation(DefaultSingletonBeanRegistry.java:421)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:282)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:334)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1573)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1519)
-	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913)
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791)
-	... 41 common frames omitted
-2025-01-08 12:16:49.950 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Starting ImsApplication using Java 22.0.1 with PID 27728 (C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes started by Le Nhat Minh Khoi in C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims)
-2025-01-08 12:16:49.952 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - No active profile set, falling back to 1 default profile: "default"
-2025-01-08 12:16:51.357 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Starting...
-2025-01-08 12:16:51.500 [main] INFO  com.zaxxer.hikari.pool.HikariPool [] [anonymous] - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@386e9fd8
-2025-01-08 12:16:51.502 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Start completed.
-2025-01-08 12:16:53.194 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext [] [anonymous] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'beanConfig' defined in file [C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes\com\khoilnm\ims\configuration\BeanConfig.class]: Unsatisfied dependency expressed through constructor parameter 1: Error creating bean with name 'masterServiceImpl' defined in file [C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes\com\khoilnm\ims\serviceImpl\MasterServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 1: Error creating bean with name 'messageSource': Requested bean is currently in creation: Is there an unresolvable circular reference or an asynchronous initialization dependency?
-2025-01-08 12:16:53.197 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown initiated...
-2025-01-08 12:16:53.204 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown completed.
-2025-01-08 12:16:53.228 [main] ERROR o.s.boot.SpringApplication [] [anonymous] - Application run failed
-org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'beanConfig' defined in file [C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes\com\khoilnm\ims\configuration\BeanConfig.class]: Unsatisfied dependency expressed through constructor parameter 1: Error creating bean with name 'masterServiceImpl' defined in file [C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes\com\khoilnm\ims\serviceImpl\MasterServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 1: Error creating bean with name 'messageSource': Requested bean is currently in creation: Is there an unresolvable circular reference or an asynchronous initialization dependency?
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804)
-	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1377)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1214)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:563)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:336)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:289)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:334)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:413)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1357)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1187)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:563)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:336)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:289)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:334)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:204)
-	at org.springframework.context.support.AbstractApplicationContext.initMessageSource(AbstractApplicationContext.java:819)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:615)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
-	at com.khoilnm.ims.ImsApplication.main(ImsApplication.java:16)
-Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'masterServiceImpl' defined in file [C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes\com\khoilnm\ims\serviceImpl\MasterServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 1: Error creating bean with name 'messageSource': Requested bean is currently in creation: Is there an unresolvable circular reference or an asynchronous initialization dependency?
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804)
-	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1377)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1214)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:563)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:336)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:289)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:334)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
-	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1631)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1519)
-	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913)
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791)
-	... 27 common frames omitted
-Caused by: org.springframework.beans.factory.BeanCurrentlyInCreationException: Error creating bean with name 'messageSource': Requested bean is currently in creation: Is there an unresolvable circular reference or an asynchronous initialization dependency?
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.beforeSingletonCreation(DefaultSingletonBeanRegistry.java:421)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:282)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:334)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1573)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1519)
-	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913)
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791)
-	... 41 common frames omitted
-2025-01-08 12:19:33.741 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Starting ImsApplication using Java 22.0.1 with PID 22536 (C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes started by Le Nhat Minh Khoi in C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims)
-2025-01-08 12:19:33.743 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - No active profile set, falling back to 1 default profile: "default"
-2025-01-08 12:19:35.474 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Starting...
-2025-01-08 12:19:35.608 [main] INFO  com.zaxxer.hikari.pool.HikariPool [] [anonymous] - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@68479e8b
-2025-01-08 12:19:35.610 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Start completed.
-2025-01-08 12:19:37.399 [main] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer [] [anonymous] - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
-2025-01-08 12:19:37.574 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [] [anonymous] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-01-08 12:19:38.019 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Started ImsApplication in 4.915 seconds (process running for 5.247)
-2025-01-08 12:19:38.118 [main] ERROR c.k.i.serviceImpl.MasterServiceImpl [] [anonymous] - Master not found for category: ${0} and value: ${1}
-2025-01-08 12:19:38.134 [main] ERROR o.s.boot.SpringApplication [] [anonymous] - Application run failed
-java.lang.RuntimeException: Category USER_ROLE not found with value ADMIN
-	at com.khoilnm.ims.serviceImpl.MasterServiceImpl.lambda$findByCategoryAndValue$0(MasterServiceImpl.java:35)
-	at java.base/java.util.Optional.orElseThrow(Optional.java:403)
-	at com.khoilnm.ims.serviceImpl.MasterServiceImpl.findByCategoryAndValue(MasterServiceImpl.java:32)
-	at com.khoilnm.ims.configuration.InitConfig.addMasterIfNotExists(InitConfig.java:110)
-	at com.khoilnm.ims.configuration.InitConfig.lambda$commandLineRunner$0(InitConfig.java:14)
-	at org.springframework.boot.SpringApplication.lambda$callRunner$5(SpringApplication.java:788)
-	at org.springframework.util.function.ThrowingConsumer$1.acceptWithException(ThrowingConsumer.java:82)
-	at org.springframework.util.function.ThrowingConsumer.accept(ThrowingConsumer.java:60)
-	at org.springframework.util.function.ThrowingConsumer$1.accept(ThrowingConsumer.java:86)
-	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:796)
-	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:787)
-	at org.springframework.boot.SpringApplication.lambda$callRunners$3(SpringApplication.java:772)
-	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
-	at java.base/java.util.stream.SortedOps$SizedRefSortingSink.end(SortedOps.java:357)
-	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:557)
-	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:546)
-	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
-	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
-	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265)
-	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:611)
-	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:772)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:325)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
-	at com.khoilnm.ims.ImsApplication.main(ImsApplication.java:16)
-2025-01-08 12:19:38.151 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown initiated...
-2025-01-08 12:19:38.158 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown completed.
-2025-01-08 12:25:26.729 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Starting ImsApplication using Java 22.0.1 with PID 8752 (C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes started by Le Nhat Minh Khoi in C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims)
-2025-01-08 12:25:26.730 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - No active profile set, falling back to 1 default profile: "default"
-2025-01-08 12:25:28.371 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Starting...
-2025-01-08 12:25:28.504 [main] INFO  com.zaxxer.hikari.pool.HikariPool [] [anonymous] - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@d0fabc8
-2025-01-08 12:25:28.506 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Start completed.
-2025-01-08 12:25:30.229 [main] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer [] [anonymous] - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
-2025-01-08 12:25:30.410 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [] [anonymous] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-01-08 12:25:30.775 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Started ImsApplication in 4.659 seconds (process running for 5.013)
-2025-01-08 12:25:40.499 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown initiated...
-2025-01-08 12:25:40.506 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown completed.
-2025-01-08 12:25:47.307 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Starting ImsApplication using Java 22.0.1 with PID 11560 (C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes started by Le Nhat Minh Khoi in C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims)
-2025-01-08 12:25:47.308 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - No active profile set, falling back to 1 default profile: "default"
-2025-01-08 12:25:48.913 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Starting...
-2025-01-08 12:25:49.060 [main] INFO  com.zaxxer.hikari.pool.HikariPool [] [anonymous] - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@cb318ac
-2025-01-08 12:25:49.062 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Start completed.
-2025-01-08 12:25:50.783 [main] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer [] [anonymous] - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
-2025-01-08 12:25:50.950 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [] [anonymous] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-01-08 12:25:51.298 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Started ImsApplication in 4.624 seconds (process running for 4.945)
-2025-01-08 12:25:57.066 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown initiated...
-2025-01-08 12:25:57.074 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown completed.
-2025-01-08 12:26:13.150 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Starting ImsApplication using Java 22.0.1 with PID 27048 (C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes started by Le Nhat Minh Khoi in C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims)
-2025-01-08 12:26:13.152 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - No active profile set, falling back to 1 default profile: "default"
-2025-01-08 12:26:14.898 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Starting...
-2025-01-08 12:26:15.145 [main] INFO  com.zaxxer.hikari.pool.HikariPool [] [anonymous] - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@68479e8b
-2025-01-08 12:26:15.148 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Start completed.
-2025-01-08 12:26:17.039 [main] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer [] [anonymous] - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
-2025-01-08 12:26:17.209 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [] [anonymous] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-01-08 12:26:17.582 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Started ImsApplication in 5.079 seconds (process running for 5.403)
-2025-01-08 12:27:08.733 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown initiated...
-2025-01-08 12:27:08.740 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown completed.
-2025-01-08 12:27:18.893 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Starting ImsApplication using Java 22.0.1 with PID 28664 (C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes started by Le Nhat Minh Khoi in C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims)
-2025-01-08 12:27:18.897 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - No active profile set, falling back to 1 default profile: "default"
-2025-01-08 12:27:21.304 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Starting...
-2025-01-08 12:27:21.582 [main] INFO  com.zaxxer.hikari.pool.HikariPool [] [anonymous] - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@68479e8b
-2025-01-08 12:27:21.584 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Start completed.
-2025-01-08 12:27:23.773 [main] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer [] [anonymous] - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
-2025-01-08 12:27:24.009 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [] [anonymous] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-01-08 12:27:24.578 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Started ImsApplication in 6.913 seconds (process running for 7.241)
-2025-01-08 12:30:17.295 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown initiated...
-2025-01-08 12:30:17.303 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown completed.
-2025-01-08 12:33:06.795 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Starting ImsApplication using Java 22.0.1 with PID 20576 (C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes started by Le Nhat Minh Khoi in C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims)
-2025-01-08 12:33:06.797 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - No active profile set, falling back to 1 default profile: "default"
-2025-01-08 12:33:08.431 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Starting...
-2025-01-08 12:33:08.567 [main] INFO  com.zaxxer.hikari.pool.HikariPool [] [anonymous] - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@76fc5687
-2025-01-08 12:33:08.570 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Start completed.
-2025-01-08 12:33:10.375 [main] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer [] [anonymous] - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
-2025-01-08 12:33:10.534 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [] [anonymous] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-01-08 12:33:10.918 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Started ImsApplication in 4.741 seconds (process running for 5.045)
-2025-01-08 12:51:37.332 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown initiated...
-2025-01-08 12:51:37.340 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown completed.
-2025-01-08 12:51:47.622 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Starting ImsApplication using Java 22.0.1 with PID 26452 (C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes started by Le Nhat Minh Khoi in C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims)
-2025-01-08 12:51:47.624 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - No active profile set, falling back to 1 default profile: "default"
-2025-01-08 12:51:49.253 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Starting...
-2025-01-08 12:51:49.391 [main] INFO  com.zaxxer.hikari.pool.HikariPool [] [anonymous] - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1a66be41
-2025-01-08 12:51:49.393 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Start completed.
-2025-01-08 12:51:51.148 [main] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer [] [anonymous] - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
-2025-01-08 12:51:51.314 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [] [anonymous] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-01-08 12:51:51.680 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Started ImsApplication in 4.688 seconds (process running for 5.016)
-2025-01-08 12:52:48.575 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown initiated...
-2025-01-08 12:52:48.582 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown completed.
-2025-01-08 12:52:58.078 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Starting ImsApplication using Java 22.0.1 with PID 28152 (C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes started by Le Nhat Minh Khoi in C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims)
-2025-01-08 12:52:58.080 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - No active profile set, falling back to 1 default profile: "default"
-2025-01-08 12:52:59.714 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Starting...
-2025-01-08 12:52:59.843 [main] INFO  com.zaxxer.hikari.pool.HikariPool [] [anonymous] - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@d0fabc8
-2025-01-08 12:52:59.845 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Start completed.
-2025-01-08 12:53:01.583 [main] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer [] [anonymous] - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
-2025-01-08 12:53:01.781 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [] [anonymous] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-01-08 12:53:02.133 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Started ImsApplication in 4.717 seconds (process running for 5.031)
-2025-01-08 12:53:51.554 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown initiated...
-2025-01-08 12:53:51.559 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown completed.
-2025-01-08 12:53:57.548 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Starting ImsApplication using Java 22.0.1 with PID 29616 (C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes started by Le Nhat Minh Khoi in C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims)
-2025-01-08 12:53:57.549 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - No active profile set, falling back to 1 default profile: "default"
-2025-01-08 12:53:59.219 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Starting...
-2025-01-08 12:53:59.350 [main] INFO  com.zaxxer.hikari.pool.HikariPool [] [anonymous] - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@44a14de0
-2025-01-08 12:53:59.352 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Start completed.
-2025-01-08 12:54:01.162 [main] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer [] [anonymous] - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
-2025-01-08 12:54:01.340 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [] [anonymous] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-01-08 12:54:01.711 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Started ImsApplication in 4.788 seconds (process running for 5.118)
-2025-01-08 12:59:32.741 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown initiated...
-2025-01-08 12:59:32.750 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown completed.
-2025-01-08 12:59:40.931 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Starting ImsApplication using Java 22.0.1 with PID 15748 (C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes started by Le Nhat Minh Khoi in C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims)
-2025-01-08 12:59:40.934 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - No active profile set, falling back to 1 default profile: "default"
-2025-01-08 12:59:42.520 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Starting...
-2025-01-08 12:59:42.658 [main] INFO  com.zaxxer.hikari.pool.HikariPool [] [anonymous] - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@26d8908e
-2025-01-08 12:59:42.659 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Start completed.
-2025-01-08 12:59:44.366 [main] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer [] [anonymous] - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
-2025-01-08 12:59:44.531 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [] [anonymous] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-01-08 12:59:44.918 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Started ImsApplication in 4.616 seconds (process running for 4.967)
-2025-01-08 13:02:50.348 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown initiated...
-2025-01-08 13:02:50.356 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown completed.
-2025-01-08 20:00:15.328 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Starting ImsApplication using Java 22.0.1 with PID 11988 (C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes started by Le Nhat Minh Khoi in C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims)
-2025-01-08 20:00:15.328 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - No active profile set, falling back to 1 default profile: "default"
-2025-01-08 20:00:17.528 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Starting...
-2025-01-08 20:00:17.707 [main] INFO  com.zaxxer.hikari.pool.HikariPool [] [anonymous] - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@9cc0505
-2025-01-08 20:00:17.707 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Start completed.
-2025-01-08 20:00:19.988 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext [] [anonymous] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'securityConfig' defined in file [C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes\com\khoilnm\ims\configuration\SecurityConfig.class]: Unsatisfied dependency expressed through constructor parameter 2: Error creating bean with name 'authenticationServiceImpl' defined in file [C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes\com\khoilnm\ims\serviceImpl\AuthenticationServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'authenticationManager' defined in class path resource [com/khoilnm/ims/configuration/BeanConfig.class]: Failed to instantiate [org.springframework.security.authentication.AuthenticationManager]: Factory method 'authenticationManager' threw exception with message: Error creating bean with name 'securityConfig': Requested bean is currently in creation: Is there an unresolvable circular reference or an asynchronous initialization dependency?
-2025-01-08 20:00:19.993 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown initiated...
-2025-01-08 20:00:20.003 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown completed.
-2025-01-08 20:00:20.073 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter [] [anonymous] - 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-The dependencies of some of the beans in the application context form a cycle:
-
-┌─────┐
-|  securityConfig defined in file [C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes\com\khoilnm\ims\configuration\SecurityConfig.class]
-↑     ↓
-|  authenticationServiceImpl defined in file [C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes\com\khoilnm\ims\serviceImpl\AuthenticationServiceImpl.class]
-↑     ↓
-|  authenticationManager defined in class path resource [com/khoilnm/ims/configuration/BeanConfig.class]
-└─────┘
-
-
-Action:
-
-Relying upon circular references is discouraged and they are prohibited by default. Update your application to remove the dependency cycle between beans. As a last resort, it may be possible to break the cycle automatically by setting spring.main.allow-circular-references to true.
-
-2025-01-08 20:20:36.218 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Starting ImsApplication using Java 22.0.1 with PID 572 (C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes started by Le Nhat Minh Khoi in C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims)
-2025-01-08 20:20:36.218 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - No active profile set, falling back to 1 default profile: "default"
-2025-01-08 20:20:37.898 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Starting...
-2025-01-08 20:20:38.038 [main] INFO  com.zaxxer.hikari.pool.HikariPool [] [anonymous] - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@647ff23e
-2025-01-08 20:20:38.038 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Start completed.
-2025-01-08 20:20:40.030 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext [] [anonymous] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'securityConfig' defined in file [C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes\com\khoilnm\ims\configuration\SecurityConfig.class]: Unsatisfied dependency expressed through constructor parameter 2: Error creating bean with name 'authenticationServiceImpl' defined in file [C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes\com\khoilnm\ims\serviceImpl\AuthenticationServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'authenticationManager' defined in class path resource [com/khoilnm/ims/configuration/BeanConfig.class]: Failed to instantiate [org.springframework.security.authentication.AuthenticationManager]: Factory method 'authenticationManager' threw exception with message: Error creating bean with name 'securityConfig': Requested bean is currently in creation: Is there an unresolvable circular reference or an asynchronous initialization dependency?
-2025-01-08 20:20:40.035 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown initiated...
-2025-01-08 20:20:40.037 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown completed.
-2025-01-08 20:20:40.108 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter [] [anonymous] - 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-The dependencies of some of the beans in the application context form a cycle:
-
-┌─────┐
-|  securityConfig defined in file [C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes\com\khoilnm\ims\configuration\SecurityConfig.class]
-↑     ↓
-|  authenticationServiceImpl defined in file [C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes\com\khoilnm\ims\serviceImpl\AuthenticationServiceImpl.class]
-↑     ↓
-|  authenticationManager defined in class path resource [com/khoilnm/ims/configuration/BeanConfig.class]
-└─────┘
-
-
-Action:
-
-Relying upon circular references is discouraged and they are prohibited by default. Update your application to remove the dependency cycle between beans. As a last resort, it may be possible to break the cycle automatically by setting spring.main.allow-circular-references to true.
-
+2025-01-09 00:04:40.482 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown initiated...
+2025-01-09 00:04:40.498 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown completed.
+2025-01-09 12:13:13.960 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Starting ImsApplication using Java 22.0.1 with PID 25068 (C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes started by Le Nhat Minh Khoi in C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims)
+2025-01-09 12:13:13.963 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - No active profile set, falling back to 1 default profile: "default"
+2025-01-09 12:13:16.250 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Starting...
+2025-01-09 12:13:16.426 [main] INFO  com.zaxxer.hikari.pool.HikariPool [] [anonymous] - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4ff074a0
+2025-01-09 12:13:16.426 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Start completed.
+2025-01-09 12:13:16.477 [main] WARN  org.hibernate.orm.deprecation [] [anonymous] - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-01-09 12:13:19.029 [main] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer [] [anonymous] - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-01-09 12:13:19.066 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [] [anonymous] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-09 12:13:19.739 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Started ImsApplication in 6.599 seconds (process running for 7.012)
+2025-01-09 12:13:28.325 [http-nio-8080-exec-1] INFO  c.k.i.c.AuthenticationController [] [anonymous] - Registering user with email: lenhatminhkhoi1@gmail.com
+2025-01-09 12:13:39.795 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown initiated...
+2025-01-09 12:13:39.806 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown completed.
+2025-01-09 12:26:12.601 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Starting ImsApplication using Java 22.0.1 with PID 24556 (C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes started by Le Nhat Minh Khoi in C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims)
+2025-01-09 12:26:12.604 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - No active profile set, falling back to 1 default profile: "default"
+2025-01-09 12:26:14.485 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Starting...
+2025-01-09 12:26:14.624 [main] INFO  com.zaxxer.hikari.pool.HikariPool [] [anonymous] - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@19924f15
+2025-01-09 12:26:14.624 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Start completed.
+2025-01-09 12:26:14.673 [main] WARN  org.hibernate.orm.deprecation [] [anonymous] - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-01-09 12:26:16.620 [main] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer [] [anonymous] - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-01-09 12:26:16.649 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [] [anonymous] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-09 12:26:17.175 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Started ImsApplication in 5.238 seconds (process running for 5.567)
+2025-01-09 12:26:27.632 [http-nio-8080-exec-2] INFO  c.k.ims.serviceImpl.JwtServiceImpl [] [anonymous] - Creating access token for user: lenhatminhkhoi1@gmail.com
+2025-01-09 12:26:27.673 [http-nio-8080-exec-2] INFO  c.k.ims.serviceImpl.JwtServiceImpl [] [anonymous] - Access token created for user: lenhatminhkhoi1@gmail.com
+2025-01-09 12:26:27.673 [http-nio-8080-exec-2] INFO  c.k.ims.serviceImpl.JwtServiceImpl [] [anonymous] - Creating refresh token for user: Le Nhat Minh Khoi
+2025-01-09 12:26:27.683 [http-nio-8080-exec-2] INFO  c.k.ims.serviceImpl.JwtServiceImpl [] [anonymous] - Saving refresh token for user: lenhatminhkhoi1@gmail.com
+2025-01-09 12:26:27.683 [http-nio-8080-exec-2] INFO  c.k.ims.serviceImpl.JwtServiceImpl [] [anonymous] - No refresh token found for email: lenhatminhkhoi1@gmail.com
+2025-01-09 12:26:28.143 [http-nio-8080-exec-2] WARN  o.h.e.jdbc.spi.SqlExceptionHelper [] [anonymous] - SQL Error: 1048, SQLState: 23000
+2025-01-09 12:26:28.143 [http-nio-8080-exec-2] ERROR o.h.e.jdbc.spi.SqlExceptionHelper [] [anonymous] - Column 'delete_flag' cannot be null
+2025-01-09 12:26:28.166 [http-nio-8080-exec-2] ERROR c.k.ims.serviceImpl.JwtServiceImpl [] [anonymous] - Error when saving refresh token: could not execute statement [Column 'delete_flag' cannot be null] [insert into refresh_tokens (created_by,created_date,delete_flag,expiry_date,modified_by,modified_date,series,token,user_id) values (?,?,?,?,?,?,?,?,?)]; SQL [insert into refresh_tokens (created_by,created_date,delete_flag,expiry_date,modified_by,modified_date,series,token,user_id) values (?,?,?,?,?,?,?,?,?)]; constraint [null]
+2025-01-09 12:26:28.166 [http-nio-8080-exec-2] ERROR c.k.ims.serviceImpl.JwtServiceImpl [] [anonymous] - Error when creating refresh token: Error when saving refresh token
+2025-01-09 12:26:41.742 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown initiated...
+2025-01-09 12:26:41.752 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown completed.
+2025-01-09 12:26:50.861 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Starting ImsApplication using Java 22.0.1 with PID 16664 (C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes started by Le Nhat Minh Khoi in C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims)
+2025-01-09 12:26:50.865 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - No active profile set, falling back to 1 default profile: "default"
+2025-01-09 12:26:52.621 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Starting...
+2025-01-09 12:26:52.751 [main] INFO  com.zaxxer.hikari.pool.HikariPool [] [anonymous] - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4e26564d
+2025-01-09 12:26:52.751 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Start completed.
+2025-01-09 12:26:52.811 [main] WARN  org.hibernate.orm.deprecation [] [anonymous] - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-01-09 12:26:54.781 [main] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer [] [anonymous] - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-01-09 12:26:54.811 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [] [anonymous] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-09 12:26:55.351 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Started ImsApplication in 5.119 seconds (process running for 5.469)
+2025-01-09 12:27:00.660 [http-nio-8080-exec-2] INFO  c.k.ims.serviceImpl.JwtServiceImpl [] [anonymous] - Creating access token for user: lenhatminhkhoi1@gmail.com
+2025-01-09 12:27:00.700 [http-nio-8080-exec-2] INFO  c.k.ims.serviceImpl.JwtServiceImpl [] [anonymous] - Access token created for user: lenhatminhkhoi1@gmail.com
+2025-01-09 12:27:00.706 [http-nio-8080-exec-2] INFO  c.k.ims.serviceImpl.JwtServiceImpl [] [anonymous] - Creating refresh token for user: Le Nhat Minh Khoi
+2025-01-09 12:27:00.708 [http-nio-8080-exec-2] INFO  c.k.ims.serviceImpl.JwtServiceImpl [] [anonymous] - Saving refresh token for user: lenhatminhkhoi1@gmail.com
+2025-01-09 12:27:00.711 [http-nio-8080-exec-2] INFO  c.k.ims.serviceImpl.JwtServiceImpl [] [anonymous] - No refresh token found for email: lenhatminhkhoi1@gmail.com
+2025-01-09 12:27:01.152 [http-nio-8080-exec-2] WARN  o.h.e.jdbc.spi.SqlExceptionHelper [] [anonymous] - SQL Error: 1406, SQLState: 22001
+2025-01-09 12:27:01.152 [http-nio-8080-exec-2] ERROR o.h.e.jdbc.spi.SqlExceptionHelper [] [anonymous] - Data truncation: Data too long for column 'token' at row 1
+2025-01-09 12:27:01.161 [http-nio-8080-exec-2] ERROR c.k.ims.serviceImpl.JwtServiceImpl [] [anonymous] - Error when saving refresh token: could not execute statement [Data truncation: Data too long for column 'token' at row 1] [insert into refresh_tokens (created_by,created_date,delete_flag,expiry_date,modified_by,modified_date,series,token,user_id) values (?,?,?,?,?,?,?,?,?)]; SQL [insert into refresh_tokens (created_by,created_date,delete_flag,expiry_date,modified_by,modified_date,series,token,user_id) values (?,?,?,?,?,?,?,?,?)]
+2025-01-09 12:27:01.161 [http-nio-8080-exec-2] ERROR c.k.ims.serviceImpl.JwtServiceImpl [] [anonymous] - Error when creating refresh token: Error when saving refresh token
+2025-01-09 12:27:50.827 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown initiated...
+2025-01-09 12:27:50.837 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown completed.
+2025-01-09 12:28:35.659 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Starting ImsApplication using Java 22.0.1 with PID 2672 (C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes started by Le Nhat Minh Khoi in C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims)
+2025-01-09 12:28:35.659 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - No active profile set, falling back to 1 default profile: "default"
+2025-01-09 12:28:37.366 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Starting...
+2025-01-09 12:28:37.499 [main] INFO  com.zaxxer.hikari.pool.HikariPool [] [anonymous] - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6be8ce1b
+2025-01-09 12:28:37.499 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Start completed.
+2025-01-09 12:28:37.549 [main] WARN  org.hibernate.orm.deprecation [] [anonymous] - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-01-09 12:28:40.555 [main] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer [] [anonymous] - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-01-09 12:28:40.584 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [] [anonymous] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-09 12:28:41.094 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Started ImsApplication in 6.04 seconds (process running for 6.348)
+2025-01-09 12:29:06.905 [http-nio-8080-exec-1] INFO  c.k.i.c.AuthenticationController [] [anonymous] - Registering user with email: lenhatminhkhoi1@gmail.com
+2025-01-09 12:29:12.612 [http-nio-8080-exec-4] INFO  c.k.ims.serviceImpl.JwtServiceImpl [] [anonymous] - Creating access token for user: lenhatminhkhoi1@gmail.com
+2025-01-09 12:29:12.641 [http-nio-8080-exec-4] INFO  c.k.ims.serviceImpl.JwtServiceImpl [] [anonymous] - Access token created for user: lenhatminhkhoi1@gmail.com
+2025-01-09 12:29:12.641 [http-nio-8080-exec-4] INFO  c.k.ims.serviceImpl.JwtServiceImpl [] [anonymous] - Creating refresh token for user: Le Nhat Minh Khoi
+2025-01-09 12:29:12.641 [http-nio-8080-exec-4] INFO  c.k.ims.serviceImpl.JwtServiceImpl [] [anonymous] - Saving refresh token for user: lenhatminhkhoi1@gmail.com
+2025-01-09 12:29:12.649 [http-nio-8080-exec-4] INFO  c.k.ims.serviceImpl.JwtServiceImpl [] [anonymous] - No refresh token found for email: lenhatminhkhoi1@gmail.com
+2025-01-09 12:29:12.657 [http-nio-8080-exec-4] WARN  o.h.e.jdbc.spi.SqlExceptionHelper [] [anonymous] - SQL Error: 1406, SQLState: 22001
+2025-01-09 12:29:12.657 [http-nio-8080-exec-4] ERROR o.h.e.jdbc.spi.SqlExceptionHelper [] [anonymous] - Data truncation: Data too long for column 'token' at row 1
+2025-01-09 12:29:12.661 [http-nio-8080-exec-4] ERROR c.k.ims.serviceImpl.JwtServiceImpl [] [anonymous] - Error when saving refresh token: could not execute statement [Data truncation: Data too long for column 'token' at row 1] [insert into refresh_tokens (created_by,created_date,delete_flag,expiry_date,modified_by,modified_date,series,token,user_id) values (?,?,?,?,?,?,?,?,?)]; SQL [insert into refresh_tokens (created_by,created_date,delete_flag,expiry_date,modified_by,modified_date,series,token,user_id) values (?,?,?,?,?,?,?,?,?)]
+2025-01-09 12:29:12.665 [http-nio-8080-exec-4] ERROR c.k.ims.serviceImpl.JwtServiceImpl [] [anonymous] - Error when creating refresh token: Error when saving refresh token
+2025-01-09 12:30:14.783 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown initiated...
+2025-01-09 12:30:14.788 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown completed.
+2025-01-09 12:30:23.797 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Starting ImsApplication using Java 22.0.1 with PID 2892 (C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes started by Le Nhat Minh Khoi in C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims)
+2025-01-09 12:30:23.797 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - No active profile set, falling back to 1 default profile: "default"
+2025-01-09 12:30:25.537 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Starting...
+2025-01-09 12:30:25.667 [main] INFO  com.zaxxer.hikari.pool.HikariPool [] [anonymous] - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1dd64243
+2025-01-09 12:30:25.672 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Start completed.
+2025-01-09 12:30:25.728 [main] WARN  org.hibernate.orm.deprecation [] [anonymous] - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-01-09 12:30:27.746 [main] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer [] [anonymous] - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-01-09 12:30:27.784 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [] [anonymous] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-09 12:30:28.316 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Started ImsApplication in 5.179 seconds (process running for 5.488)
+2025-01-09 12:30:35.881 [http-nio-8080-exec-6] INFO  c.k.ims.serviceImpl.JwtServiceImpl [] [anonymous] - Creating access token for user: lenhatminhkhoi1@gmail.com
+2025-01-09 12:30:35.912 [http-nio-8080-exec-6] INFO  c.k.ims.serviceImpl.JwtServiceImpl [] [anonymous] - Access token created for user: lenhatminhkhoi1@gmail.com
+2025-01-09 12:30:35.912 [http-nio-8080-exec-6] INFO  c.k.ims.serviceImpl.JwtServiceImpl [] [anonymous] - Creating refresh token for user: Le Nhat Minh Khoi
+2025-01-09 12:30:35.916 [http-nio-8080-exec-6] INFO  c.k.ims.serviceImpl.JwtServiceImpl [] [anonymous] - Saving refresh token for user: lenhatminhkhoi1@gmail.com
+2025-01-09 12:30:35.916 [http-nio-8080-exec-6] INFO  c.k.ims.serviceImpl.JwtServiceImpl [] [anonymous] - No refresh token found for email: lenhatminhkhoi1@gmail.com
+2025-01-09 12:30:35.916 [http-nio-8080-exec-6] INFO  c.k.ims.serviceImpl.JwtServiceImpl [] [anonymous] - Length of refresh token: 344
+2025-01-09 12:30:35.916 [http-nio-8080-exec-6] INFO  c.k.ims.serviceImpl.JwtServiceImpl [] [anonymous] - Refresh token: eyJhbGciOiJIUzUxMiJ9.eyJzZXJpZXMiOiJ1UkdfUmdVZHpnZ2o3bXpmS2VJTTk0QW1CYXNCT1dUaWhzRGlQMEpqRURBIiwidHlwZSI6InJlZnJlc2giLCJlbWFpbCI6ImxlbmhhdG1pbmhraG9pMUBnbWFpbC5jb20iLCJzdWIiOiJsZW5oYXRtaW5oa2hvaTFAZ21haWwuY29tIiwiaWF0IjoxNzM2NDAwNjM1LCJleHAiOjE3MzY0MDc4MzV9.g1cr7pkA7mY4KlciVxo7KBOx3hhnR-JOd2NpaZp0cWLVyoPRcQx6NuDWvrZKM28TDKrut-FYZ0ivRApsm01Udg
+2025-01-09 12:30:36.326 [http-nio-8080-exec-6] WARN  o.h.e.jdbc.spi.SqlExceptionHelper [] [anonymous] - SQL Error: 1406, SQLState: 22001
+2025-01-09 12:30:36.331 [http-nio-8080-exec-6] ERROR o.h.e.jdbc.spi.SqlExceptionHelper [] [anonymous] - Data truncation: Data too long for column 'token' at row 1
+2025-01-09 12:30:36.336 [http-nio-8080-exec-6] ERROR c.k.ims.serviceImpl.JwtServiceImpl [] [anonymous] - Error when saving refresh token: could not execute statement [Data truncation: Data too long for column 'token' at row 1] [insert into refresh_tokens (created_by,created_date,delete_flag,expiry_date,modified_by,modified_date,series,token,user_id) values (?,?,?,?,?,?,?,?,?)]; SQL [insert into refresh_tokens (created_by,created_date,delete_flag,expiry_date,modified_by,modified_date,series,token,user_id) values (?,?,?,?,?,?,?,?,?)]
+2025-01-09 12:30:36.336 [http-nio-8080-exec-6] ERROR c.k.ims.serviceImpl.JwtServiceImpl [] [anonymous] - Error when creating refresh token: Error when saving refresh token
+2025-01-09 12:32:13.579 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown initiated...
+2025-01-09 12:32:13.589 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown completed.
+2025-01-09 12:32:41.568 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Starting ImsApplication using Java 22.0.1 with PID 31604 (C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes started by Le Nhat Minh Khoi in C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims)
+2025-01-09 12:32:41.568 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - No active profile set, falling back to 1 default profile: "default"
+2025-01-09 12:32:43.327 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Starting...
+2025-01-09 12:32:43.457 [main] INFO  com.zaxxer.hikari.pool.HikariPool [] [anonymous] - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@32dbca45
+2025-01-09 12:32:43.457 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Start completed.
+2025-01-09 12:32:43.508 [main] WARN  org.hibernate.orm.deprecation [] [anonymous] - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-01-09 12:32:46.447 [main] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer [] [anonymous] - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-01-09 12:32:46.482 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [] [anonymous] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-09 12:32:46.997 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Started ImsApplication in 6.1 seconds (process running for 6.435)
+2025-01-09 12:33:06.902 [http-nio-8080-exec-5] INFO  c.k.i.c.AuthenticationController [] [anonymous] - Registering user with email: lenhatminhkhoi1@gmail.com
+2025-01-09 12:33:15.845 [http-nio-8080-exec-8] INFO  c.k.ims.serviceImpl.JwtServiceImpl [] [anonymous] - Creating access token for user: lenhatminhkhoi1@gmail.com
+2025-01-09 12:33:15.867 [http-nio-8080-exec-8] INFO  c.k.ims.serviceImpl.JwtServiceImpl [] [anonymous] - Access token created for user: lenhatminhkhoi1@gmail.com
+2025-01-09 12:33:15.867 [http-nio-8080-exec-8] INFO  c.k.ims.serviceImpl.JwtServiceImpl [] [anonymous] - Creating refresh token for user: Le Nhat Minh Khoi
+2025-01-09 12:33:15.867 [http-nio-8080-exec-8] INFO  c.k.ims.serviceImpl.JwtServiceImpl [] [anonymous] - Saving refresh token for user: lenhatminhkhoi1@gmail.com
+2025-01-09 12:33:15.875 [http-nio-8080-exec-8] INFO  c.k.ims.serviceImpl.JwtServiceImpl [] [anonymous] - No refresh token found for email: lenhatminhkhoi1@gmail.com
+2025-01-09 12:33:15.875 [http-nio-8080-exec-8] INFO  c.k.ims.serviceImpl.JwtServiceImpl [] [anonymous] - Length of refresh token: 344
+2025-01-09 12:33:15.875 [http-nio-8080-exec-8] INFO  c.k.ims.serviceImpl.JwtServiceImpl [] [anonymous] - Refresh token: eyJhbGciOiJIUzUxMiJ9.eyJzZXJpZXMiOiJkS3RYaWZ4eDhZdTNpSmVHN3JIMmVPSUxzYm5JeXRVeGltVWNvZDJuWWJRIiwidHlwZSI6InJlZnJlc2giLCJlbWFpbCI6ImxlbmhhdG1pbmhraG9pMUBnbWFpbC5jb20iLCJzdWIiOiJsZW5oYXRtaW5oa2hvaTFAZ21haWwuY29tIiwiaWF0IjoxNzM2NDAwNzk1LCJleHAiOjE3MzY0MDc5OTV9.9DJjshapfPDLRcGJNyBulcuF9OKl4dourWCZtCeUt71ruNacknU9NNG1QTFUzVviVhzuJvDM-W2jdNgye9e3sw
+2025-01-09 12:33:15.895 [http-nio-8080-exec-8] INFO  c.k.ims.serviceImpl.JwtServiceImpl [] [anonymous] - Refresh token saved to database for user: lenhatminhkhoi1@gmail.com
+2025-01-09 12:33:15.895 [http-nio-8080-exec-8] INFO  c.k.ims.serviceImpl.JwtServiceImpl [] [anonymous] - Refresh token created for user: lenhatminhkhoi1@gmail.com
+2025-01-09 12:39:31.665 [http-nio-8080-exec-3] INFO  c.k.ims.serviceImpl.JwtServiceImpl [] [anonymous] - Creating access token for user: lenhatminhkhoi1@gmail.com
+2025-01-09 12:39:31.665 [http-nio-8080-exec-3] INFO  c.k.ims.serviceImpl.JwtServiceImpl [] [anonymous] - Access token created for user: lenhatminhkhoi1@gmail.com
+2025-01-09 12:39:31.665 [http-nio-8080-exec-3] INFO  c.k.ims.serviceImpl.JwtServiceImpl [] [anonymous] - Creating refresh token for user: Le Nhat Minh Khoi
+2025-01-09 12:39:31.669 [http-nio-8080-exec-3] INFO  c.k.ims.serviceImpl.JwtServiceImpl [] [anonymous] - Saving refresh token for user: lenhatminhkhoi1@gmail.com
+2025-01-09 12:39:31.669 [http-nio-8080-exec-3] INFO  c.k.ims.serviceImpl.JwtServiceImpl [] [anonymous] - No refresh token found for email: lenhatminhkhoi1@gmail.com
+2025-01-09 12:39:31.669 [http-nio-8080-exec-3] INFO  c.k.ims.serviceImpl.JwtServiceImpl [] [anonymous] - Length of refresh token: 344
+2025-01-09 12:39:31.669 [http-nio-8080-exec-3] INFO  c.k.ims.serviceImpl.JwtServiceImpl [] [anonymous] - Refresh token: eyJhbGciOiJIUzUxMiJ9.eyJzZXJpZXMiOiJBNUNQbGhFSHFKQzNMS2VyTS01ekVsVjJ3RTM5ajFYWHRocl9LY1RtZlpzIiwidHlwZSI6InJlZnJlc2giLCJlbWFpbCI6ImxlbmhhdG1pbmhraG9pMUBnbWFpbC5jb20iLCJzdWIiOiJsZW5oYXRtaW5oa2hvaTFAZ21haWwuY29tIiwiaWF0IjoxNzM2NDAxMTcxLCJleHAiOjE3MzY0MDgzNzF9.sr0nzREsliB-f4CN-7UybMBuYkq8j6Aao157EbHFqBlBevkWUi1iUYxSt65GOBh19qnFrXZoATN2q6y0w0PuFg
+2025-01-09 12:39:31.680 [http-nio-8080-exec-3] INFO  c.k.ims.serviceImpl.JwtServiceImpl [] [anonymous] - Refresh token saved to database for user: lenhatminhkhoi1@gmail.com
+2025-01-09 12:39:31.680 [http-nio-8080-exec-3] INFO  c.k.ims.serviceImpl.JwtServiceImpl [] [anonymous] - Refresh token created for user: lenhatminhkhoi1@gmail.com
+2025-01-09 12:39:51.728 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown initiated...
+2025-01-09 12:39:51.738 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown completed.
+2025-01-09 12:40:02.018 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Starting ImsApplication using Java 22.0.1 with PID 1348 (C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes started by Le Nhat Minh Khoi in C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims)
+2025-01-09 12:40:02.018 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - No active profile set, falling back to 1 default profile: "default"
+2025-01-09 12:40:03.772 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Starting...
+2025-01-09 12:40:03.904 [main] INFO  com.zaxxer.hikari.pool.HikariPool [] [anonymous] - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1c788d08
+2025-01-09 12:40:03.908 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Start completed.
+2025-01-09 12:40:03.957 [main] WARN  org.hibernate.orm.deprecation [] [anonymous] - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-01-09 12:40:06.057 [main] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer [] [anonymous] - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-01-09 12:40:06.098 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [] [anonymous] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-09 12:40:06.631 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Started ImsApplication in 5.309 seconds (process running for 5.666)
+2025-01-09 12:40:12.387 [http-nio-8080-exec-1] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] [] [anonymous] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+io.jsonwebtoken.ExpiredJwtException: JWT expired at 2024-11-28T14:51:56Z. Current time: 2025-01-09T05:40:12Z, a difference of 3595696387 milliseconds.  Allowed clock skew: 0 milliseconds.
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:427)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:529)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parseClaimsJws(DefaultJwtParser.java:589)
+	at io.jsonwebtoken.impl.ImmutableJwtParser.parseClaimsJws(ImmutableJwtParser.java:173)
+	at com.khoilnm.ims.serviceImpl.JwtServiceImpl.extractAllClaims(JwtServiceImpl.java:261)
+	at com.khoilnm.ims.serviceImpl.JwtServiceImpl.extractClaims(JwtServiceImpl.java:252)
+	at com.khoilnm.ims.serviceImpl.JwtServiceImpl.getEmailFromRefreshToken(JwtServiceImpl.java:179)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:723)
+	at com.khoilnm.ims.serviceImpl.JwtServiceImpl$$SpringCGLIB$$0.getEmailFromRefreshToken(<generated>)
+	at com.khoilnm.ims.configuration.JwtFilterConfig.doFilterInternal(JwtFilterConfig.java:61)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:243)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:238)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1570)
+2025-01-09 12:40:48.855 [http-nio-8080-exec-3] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] [] [anonymous] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+io.jsonwebtoken.ExpiredJwtException: JWT expired at 2024-11-28T14:51:56Z. Current time: 2025-01-09T05:40:48Z, a difference of 3595732855 milliseconds.  Allowed clock skew: 0 milliseconds.
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:427)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:529)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parseClaimsJws(DefaultJwtParser.java:589)
+	at io.jsonwebtoken.impl.ImmutableJwtParser.parseClaimsJws(ImmutableJwtParser.java:173)
+	at com.khoilnm.ims.serviceImpl.JwtServiceImpl.extractAllClaims(JwtServiceImpl.java:261)
+	at com.khoilnm.ims.serviceImpl.JwtServiceImpl.extractClaims(JwtServiceImpl.java:252)
+	at com.khoilnm.ims.serviceImpl.JwtServiceImpl.getEmailFromRefreshToken(JwtServiceImpl.java:179)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:723)
+	at com.khoilnm.ims.serviceImpl.JwtServiceImpl$$SpringCGLIB$$0.getEmailFromRefreshToken(<generated>)
+	at com.khoilnm.ims.configuration.JwtFilterConfig.doFilterInternal(JwtFilterConfig.java:61)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:243)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:238)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1570)
+2025-01-09 12:41:07.906 [http-nio-8080-exec-8] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] [] [anonymous] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+io.jsonwebtoken.ExpiredJwtException: JWT expired at 2024-11-28T14:51:56Z. Current time: 2025-01-09T05:41:07Z, a difference of 3595751906 milliseconds.  Allowed clock skew: 0 milliseconds.
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:427)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:529)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parseClaimsJws(DefaultJwtParser.java:589)
+	at io.jsonwebtoken.impl.ImmutableJwtParser.parseClaimsJws(ImmutableJwtParser.java:173)
+	at com.khoilnm.ims.serviceImpl.JwtServiceImpl.extractAllClaims(JwtServiceImpl.java:261)
+	at com.khoilnm.ims.serviceImpl.JwtServiceImpl.extractClaims(JwtServiceImpl.java:252)
+	at com.khoilnm.ims.serviceImpl.JwtServiceImpl.getEmailFromRefreshToken(JwtServiceImpl.java:179)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:723)
+	at com.khoilnm.ims.serviceImpl.JwtServiceImpl$$SpringCGLIB$$0.getEmailFromRefreshToken(<generated>)
+	at com.khoilnm.ims.configuration.JwtFilterConfig.doFilterInternal(JwtFilterConfig.java:61)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:243)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:238)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1570)
+2025-01-09 12:48:40.973 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown initiated...
+2025-01-09 12:48:40.985 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown completed.
+2025-01-09 12:48:53.805 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Starting ImsApplication using Java 22.0.1 with PID 1416 (C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes started by Le Nhat Minh Khoi in C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims)
+2025-01-09 12:48:53.811 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - No active profile set, falling back to 1 default profile: "default"
+2025-01-09 12:48:55.702 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Starting...
+2025-01-09 12:48:55.834 [main] INFO  com.zaxxer.hikari.pool.HikariPool [] [anonymous] - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@46de118b
+2025-01-09 12:48:55.834 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Start completed.
+2025-01-09 12:48:55.872 [main] WARN  org.hibernate.orm.deprecation [] [anonymous] - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-01-09 12:48:57.956 [main] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer [] [anonymous] - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-01-09 12:48:58.003 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [] [anonymous] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-09 12:48:58.590 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Started ImsApplication in 5.378 seconds (process running for 5.693)
+2025-01-09 12:49:04.371 [http-nio-8080-exec-1] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] [] [anonymous] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+io.jsonwebtoken.ExpiredJwtException: JWT expired at 2024-11-28T14:51:56Z. Current time: 2025-01-09T05:49:04Z, a difference of 3596228371 milliseconds.  Allowed clock skew: 0 milliseconds.
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:427)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:529)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parseClaimsJws(DefaultJwtParser.java:589)
+	at io.jsonwebtoken.impl.ImmutableJwtParser.parseClaimsJws(ImmutableJwtParser.java:173)
+	at com.khoilnm.ims.serviceImpl.JwtServiceImpl.extractAllClaims(JwtServiceImpl.java:285)
+	at com.khoilnm.ims.serviceImpl.JwtServiceImpl.extractClaims(JwtServiceImpl.java:276)
+	at com.khoilnm.ims.serviceImpl.JwtServiceImpl.getEmailFromRefreshToken(JwtServiceImpl.java:203)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:723)
+	at com.khoilnm.ims.serviceImpl.JwtServiceImpl$$SpringCGLIB$$0.getEmailFromRefreshToken(<generated>)
+	at com.khoilnm.ims.configuration.JwtFilterConfig.doFilterInternal(JwtFilterConfig.java:61)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:243)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:238)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1570)
+2025-01-09 12:50:13.497 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown initiated...
+2025-01-09 12:50:13.503 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown completed.
+2025-01-09 12:50:22.596 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Starting ImsApplication using Java 22.0.1 with PID 21800 (C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes started by Le Nhat Minh Khoi in C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims)
+2025-01-09 12:50:22.606 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - No active profile set, falling back to 1 default profile: "default"
+2025-01-09 12:50:24.356 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Starting...
+2025-01-09 12:50:24.495 [main] INFO  com.zaxxer.hikari.pool.HikariPool [] [anonymous] - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@684b26b7
+2025-01-09 12:50:24.495 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Start completed.
+2025-01-09 12:50:24.541 [main] WARN  org.hibernate.orm.deprecation [] [anonymous] - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-01-09 12:50:26.545 [main] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer [] [anonymous] - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-01-09 12:50:26.566 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [] [anonymous] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-09 12:50:27.085 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Started ImsApplication in 5.119 seconds (process running for 5.452)
+2025-01-09 12:50:35.377 [http-nio-8080-exec-3] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] [] [anonymous] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+io.jsonwebtoken.ExpiredJwtException: JWT expired at 2024-11-28T14:51:56Z. Current time: 2025-01-09T05:50:35Z, a difference of 3596319377 milliseconds.  Allowed clock skew: 0 milliseconds.
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:427)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:529)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parseClaimsJws(DefaultJwtParser.java:589)
+	at io.jsonwebtoken.impl.ImmutableJwtParser.parseClaimsJws(ImmutableJwtParser.java:173)
+	at com.khoilnm.ims.serviceImpl.JwtServiceImpl.extractAllClaims(JwtServiceImpl.java:285)
+	at com.khoilnm.ims.serviceImpl.JwtServiceImpl.extractClaims(JwtServiceImpl.java:276)
+	at com.khoilnm.ims.serviceImpl.JwtServiceImpl.getEmailFromRefreshToken(JwtServiceImpl.java:203)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:723)
+	at com.khoilnm.ims.serviceImpl.JwtServiceImpl$$SpringCGLIB$$0.getEmailFromRefreshToken(<generated>)
+	at com.khoilnm.ims.configuration.JwtFilterConfig.doFilterInternal(JwtFilterConfig.java:61)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:243)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:238)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1570)
+2025-01-09 12:52:22.732 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown initiated...
+2025-01-09 12:52:22.738 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown completed.
+2025-01-09 12:52:32.387 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Starting ImsApplication using Java 22.0.1 with PID 23804 (C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes started by Le Nhat Minh Khoi in C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims)
+2025-01-09 12:52:32.387 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - No active profile set, falling back to 1 default profile: "default"
+2025-01-09 12:52:34.089 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Starting...
+2025-01-09 12:52:34.227 [main] INFO  com.zaxxer.hikari.pool.HikariPool [] [anonymous] - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@275902e1
+2025-01-09 12:52:34.227 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Start completed.
+2025-01-09 12:52:34.267 [main] WARN  org.hibernate.orm.deprecation [] [anonymous] - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-01-09 12:52:36.188 [main] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer [] [anonymous] - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-01-09 12:52:36.220 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [] [anonymous] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-09 12:52:36.737 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Started ImsApplication in 4.96 seconds (process running for 5.318)
+2025-01-09 12:52:45.926 [http-nio-8080-exec-6] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] [] [anonymous] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+io.jsonwebtoken.ExpiredJwtException: JWT expired at 2024-11-28T14:51:56Z. Current time: 2025-01-09T05:52:45Z, a difference of 3596449926 milliseconds.  Allowed clock skew: 0 milliseconds.
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:427)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:529)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parseClaimsJws(DefaultJwtParser.java:589)
+	at io.jsonwebtoken.impl.ImmutableJwtParser.parseClaimsJws(ImmutableJwtParser.java:173)
+	at com.khoilnm.ims.serviceImpl.JwtServiceImpl.extractAllClaims(JwtServiceImpl.java:285)
+	at com.khoilnm.ims.serviceImpl.JwtServiceImpl.extractClaims(JwtServiceImpl.java:276)
+	at com.khoilnm.ims.serviceImpl.JwtServiceImpl.getEmailFromRefreshToken(JwtServiceImpl.java:203)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:723)
+	at com.khoilnm.ims.serviceImpl.JwtServiceImpl$$SpringCGLIB$$0.getEmailFromRefreshToken(<generated>)
+	at com.khoilnm.ims.configuration.JwtFilterConfig.doFilterInternal(JwtFilterConfig.java:64)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:243)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:238)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1570)
+2025-01-09 12:53:08.545 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown initiated...
+2025-01-09 12:53:08.558 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown completed.
+2025-01-09 12:53:17.990 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Starting ImsApplication using Java 22.0.1 with PID 20760 (C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes started by Le Nhat Minh Khoi in C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims)
+2025-01-09 12:53:17.994 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - No active profile set, falling back to 1 default profile: "default"
+2025-01-09 12:53:19.744 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Starting...
+2025-01-09 12:53:19.900 [main] INFO  com.zaxxer.hikari.pool.HikariPool [] [anonymous] - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@275902e1
+2025-01-09 12:53:19.904 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Start completed.
+2025-01-09 12:53:19.954 [main] WARN  org.hibernate.orm.deprecation [] [anonymous] - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-01-09 12:53:22.003 [main] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer [] [anonymous] - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-01-09 12:53:22.034 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [] [anonymous] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-09 12:53:22.617 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Started ImsApplication in 5.253 seconds (process running for 5.609)
+2025-01-09 12:53:26.353 [http-nio-8080-exec-4] INFO  c.k.i.configuration.JwtFilterConfig [] [anonymous] - Processing JWT filter for path: /api/v1/auth/login
+2025-01-09 12:53:26.406 [http-nio-8080-exec-4] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] [] [anonymous] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+io.jsonwebtoken.ExpiredJwtException: JWT expired at 2024-11-28T14:51:56Z. Current time: 2025-01-09T05:53:26Z, a difference of 3596490406 milliseconds.  Allowed clock skew: 0 milliseconds.
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:427)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:529)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parseClaimsJws(DefaultJwtParser.java:589)
+	at io.jsonwebtoken.impl.ImmutableJwtParser.parseClaimsJws(ImmutableJwtParser.java:173)
+	at com.khoilnm.ims.serviceImpl.JwtServiceImpl.extractAllClaims(JwtServiceImpl.java:285)
+	at com.khoilnm.ims.serviceImpl.JwtServiceImpl.extractClaims(JwtServiceImpl.java:276)
+	at com.khoilnm.ims.serviceImpl.JwtServiceImpl.getEmailFromRefreshToken(JwtServiceImpl.java:203)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:723)
+	at com.khoilnm.ims.serviceImpl.JwtServiceImpl$$SpringCGLIB$$0.getEmailFromRefreshToken(<generated>)
+	at com.khoilnm.ims.configuration.JwtFilterConfig.doFilterInternal(JwtFilterConfig.java:64)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:243)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:238)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1570)
+2025-01-09 12:54:06.841 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown initiated...
+2025-01-09 12:54:06.843 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown completed.
+2025-01-09 12:54:16.025 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Starting ImsApplication using Java 22.0.1 with PID 15056 (C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims\target\classes started by Le Nhat Minh Khoi in C:\Users\Le Nhat Minh Khoi\Desktop\ims-II\ims)
+2025-01-09 12:54:16.025 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - No active profile set, falling back to 1 default profile: "default"
+2025-01-09 12:54:17.720 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Starting...
+2025-01-09 12:54:17.860 [main] INFO  com.zaxxer.hikari.pool.HikariPool [] [anonymous] - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4ffa078d
+2025-01-09 12:54:17.860 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Start completed.
+2025-01-09 12:54:17.910 [main] WARN  org.hibernate.orm.deprecation [] [anonymous] - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-01-09 12:54:19.878 [main] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer [] [anonymous] - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-01-09 12:54:19.903 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [] [anonymous] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-09 12:54:20.462 [main] INFO  com.khoilnm.ims.ImsApplication [] [anonymous] - Started ImsApplication in 5.078 seconds (process running for 5.429)
+2025-01-09 12:54:24.539 [http-nio-8080-exec-2] INFO  c.k.i.configuration.JwtFilterConfig [] [anonymous] - Skipping JWT filter for public path: /api/v1/auth/login
+2025-01-09 12:54:24.884 [http-nio-8080-exec-2] INFO  c.k.ims.serviceImpl.JwtServiceImpl [] [anonymous] - Creating access token for user: lenhatminhkhoi1@gmail.com
+2025-01-09 12:54:24.919 [http-nio-8080-exec-2] INFO  c.k.ims.serviceImpl.JwtServiceImpl [] [anonymous] - Access token created for user: lenhatminhkhoi1@gmail.com
+2025-01-09 12:54:24.919 [http-nio-8080-exec-2] INFO  c.k.ims.serviceImpl.JwtServiceImpl [] [anonymous] - Creating refresh token for user: Le Nhat Minh Khoi
+2025-01-09 12:54:24.919 [http-nio-8080-exec-2] INFO  c.k.ims.serviceImpl.JwtServiceImpl [] [anonymous] - Saving refresh token for user: lenhatminhkhoi1@gmail.com
+2025-01-09 12:54:24.934 [http-nio-8080-exec-2] INFO  c.k.ims.serviceImpl.JwtServiceImpl [] [anonymous] - No refresh token found for email: lenhatminhkhoi1@gmail.com
+2025-01-09 12:54:24.934 [http-nio-8080-exec-2] INFO  c.k.ims.serviceImpl.JwtServiceImpl [] [anonymous] - Length of refresh token: 344
+2025-01-09 12:54:24.934 [http-nio-8080-exec-2] INFO  c.k.ims.serviceImpl.JwtServiceImpl [] [anonymous] - Refresh token: eyJhbGciOiJIUzUxMiJ9.eyJzZXJpZXMiOiJ3Mkt3YlZHdGxwNnJTVVpsd3l3OGluXzFMRHdwWFdkbWNENUZydUdwZWZ3IiwidHlwZSI6InJlZnJlc2giLCJlbWFpbCI6ImxlbmhhdG1pbmhraG9pMUBnbWFpbC5jb20iLCJzdWIiOiJsZW5oYXRtaW5oa2hvaTFAZ21haWwuY29tIiwiaWF0IjoxNzM2NDAyMDY0LCJleHAiOjE3MzY0MDkyNjR9.qdtqsuuK33j3z1IDhyT9mwfd9rT7S_cu7NAalQjHRI_tBkGAyqL4v_QJTsgELMiwipbj3kxIGAE6PUM3EQ73Fg
+2025-01-09 12:54:25.009 [http-nio-8080-exec-2] INFO  c.k.ims.serviceImpl.JwtServiceImpl [] [anonymous] - Refresh token saved to database for user: lenhatminhkhoi1@gmail.com
+2025-01-09 12:54:25.009 [http-nio-8080-exec-2] INFO  c.k.ims.serviceImpl.JwtServiceImpl [] [anonymous] - Refresh token created for user: lenhatminhkhoi1@gmail.com
+2025-01-09 12:56:02.579 [http-nio-8080-exec-5] INFO  c.k.i.configuration.JwtFilterConfig [] [anonymous] - Skipping JWT filter for public path: /api/v1/auth/logout
+2025-01-09 12:56:02.612 [http-nio-8080-exec-5] INFO  c.k.ims.serviceImpl.JwtServiceImpl [] [anonymous] - Successfully deleted 1 refresh token(s) for email: lenhatminhkhoi1@gmail.com
+2025-01-09 12:56:34.429 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown initiated...
+2025-01-09 12:56:34.431 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource [] [anonymous] - HikariPool-1 - Shutdown completed.

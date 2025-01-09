@@ -8,6 +8,7 @@ import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -17,11 +18,11 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @Service
 public class AuthenticationServiceImpl implements AuthenticationService {
-    private final AuthenticationManager authentication_manager;
+    private final AuthenticationManager authenticationManager;
     private final JwtService jwtService;
 
-    public AuthenticationServiceImpl(AuthenticationManager authentication_manager, JwtService jwtService) {
-        this.authentication_manager = authentication_manager;
+    public AuthenticationServiceImpl(@Lazy AuthenticationManager authenticationManager, JwtService jwtService) {
+        this.authenticationManager = authenticationManager;
         this.jwtService = jwtService;
     }
 
@@ -32,7 +33,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
      */
     @Override
     public Authentication authenticate(String email, String password) {
-        return authentication_manager.authenticate(new UsernamePasswordAuthenticationToken(email, password));
+        return authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(email, password));
     }
 
     /**
