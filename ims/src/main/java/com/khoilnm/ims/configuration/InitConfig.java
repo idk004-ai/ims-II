@@ -107,7 +107,7 @@ public class InitConfig {
     }
 
     private void addMasterIfNotExists(MasterService masterService, String category, String categoryValue) {
-        if (masterService.findByCategoryAndValue(category, categoryValue).isEmpty()) {
+        if (masterService.findByCategoryAndValue(category, categoryValue) == null) {
             int nextCategoryId = masterService.findMaxCategoryId(category) + 1;
 
             Master master = Master.builder()

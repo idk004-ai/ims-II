@@ -3,12 +3,15 @@ package com.khoilnm.ims.model;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20,17 +23,26 @@ public class RefreshToken extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private User user;
+    private String email;
 
     @Column(nullable = false, unique = true, length = 500)
     private String token;
 
-    @Column(nullable = false)
-    private String series;
+    private boolean isRevoke;
+
+    @Column(nullable = true)
+    private Date revokedAt;
+
+    @Column(nullable = true, length = 500)
+    private String revokeReason;
+
+    private boolean isRememberMe;
+
+    private Date lastUsedAt;
 
     @Column(nullable = false)
     private Date expiryDate;
 
+    @Version
+    private Long version;
 }

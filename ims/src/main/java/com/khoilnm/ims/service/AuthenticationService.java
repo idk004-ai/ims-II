@@ -10,6 +10,4 @@ public interface AuthenticationService extends LogoutHandler {
 
     Authentication authenticate(String email, String password);
 
-    User get_user_info(Authentication authentication);
-
 }

@@ -2,6 +2,7 @@ package com.khoilnm.ims.serviceImpl;
 
 import com.khoilnm.ims.common.ConstantUtils;
 import com.khoilnm.ims.exceptions.TokenCreationException;
+import com.khoilnm.ims.exceptions.TokenValidationException;
 import com.khoilnm.ims.model.RefreshToken;
 import com.khoilnm.ims.model.User;
 import com.khoilnm.ims.repository.RefreshTokenRepository;
@@ -9,6 +10,7 @@ import com.khoilnm.ims.service.JwtService;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
+import io.jsonwebtoken.security.SignatureException;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -20,25 +22,25 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 import java.security.Key;
-import java.security.SecureRandom;
-import java.util.Base64;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 
+@Transactional
 @Service
 @Slf4j
 public class JwtServiceImpl implements JwtService {
 
+    @Value("${spring.application.name}")
+    private String applicationName;
+
     @Value("${app.jwt.secret-key}")
     private String jwtSecret;
 
-    @Value("${app.jwt.access_token.expiration_time}")
-    private Long accessTokenExpirationTime;
-
-    @Value("${app.jwt.refresh_token.expiration_time}")
-    private Long refreshTokenExpirationTime;
+    private static final long ACCESS_TOKEN_VALIDITY = 900L; // 15 minutes
+    private static final long REFRESH_TOKEN_VALIDITY = 604800L; // 7 days
 
     private final RefreshTokenRepository refreshTokenRepository;
 
@@ -52,82 +54,66 @@ public class JwtServiceImpl implements JwtService {
     }
 
     /**
-     * @param user
-     * @return
+     * @param user User
+     * @return String
      */
     @Override
     public String createAccessToken(User user) {
+        log.info("Creating access token for user: {}", user.getEmail());
 
-        try {
-            log.info("Creating access token for user: {}", user.getEmail());
+        Map<String, Object> claims = new HashMap<>();
+        claims.put("roles", user.getAuthorities().stream().map(GrantedAuthority::getAuthority).toList());
+        claims.put("email", user.getEmail());
 
-            Date date = new Date();
-            Date expirationDate = new Date(date.getTime() + accessTokenExpirationTime * 1000);
+        String token = Jwts
+                .builder()
+                .setClaims(claims)
+                .setSubject(user.getEmail())
+                .setIssuedAt(new Date(System.currentTimeMillis()))
+                .setIssuer(applicationName)
+                .setExpiration(new Date(System.currentTimeMillis() + ACCESS_TOKEN_VALIDITY * 1000))
+                .signWith(getSigningKey(), SignatureAlgorithm.HS256)
+                .compact();
 
-            Map<String, Object> claims = new HashMap<>();
-            claims.put("roles", user.getAuthorities().stream().map(GrantedAuthority::getAuthority).toList());
-            claims.put("email", user.getEmail());
-
-            String token = Jwts
-                    .builder()
-                    .setClaims(claims)
-                    .setSubject(user.getEmail())
-                    .setIssuedAt(new Date(System.currentTimeMillis()))
-                    .setExpiration(expirationDate)
-                    .signWith(getSigningKey(), SignatureAlgorithm.HS256)
-                    .compact();
-
-            log.info("Access token created for user: {}", user.getEmail());
-            return token;
-        } catch (Exception e) {
-            log.error("Error when creating access token: {}", e.getMessage());
-            throw new TokenCreationException("Error when creating access token", e);
-        }
+        log.info("Access token created for user: {}", user.getEmail());
+        return token;
     }
 
     /**
-     * @param user
-     * @return
+     * @param user         User
+     * @param isRememberMe boolean
+     * @return String
      */
     @Override
-    public String createRefreshToken(User user) {
-        try {
-            log.info("Creating refresh token for user: {}", user.getName());
+    public String createRefreshToken(User user, boolean isRememberMe) {
+        log.info("Creating refresh token for user: {}", user.getName());
 
-            Date now = new Date();
-            Date expiryDate = new Date(now.getTime() + refreshTokenExpirationTime * 1000);
+        Date expiryDate = new Date(System.currentTimeMillis() + REFRESH_TOKEN_VALIDITY * 1000);
 
-            // Generate token series
-            String tokenSeries = generateTokenSeries();
+        Map<String, Object> claims = new HashMap<>();
+        claims.put("email", user.getEmail());
+        claims.put("remember_me", isRememberMe);
 
-            Map<String, Object> claims = new HashMap<>();
-            claims.put("type", "refresh");
-            claims.put("series", tokenSeries);
-            claims.put("email", user.getEmail());
+        String token = Jwts
+                .builder()
+                .setClaims(claims)
+                .setSubject(ConstantUtils.JWT_REFRESH_TOKEN)
+                .setIssuedAt(new Date())
+                .setIssuer(applicationName)
+                .setExpiration(expiryDate)
+                .signWith(getSigningKey(), SignatureAlgorithm.HS512)
+                .compact();
 
-            String token = Jwts
-                    .builder()
-                    .setClaims(claims)
-                    .setSubject(user.getEmail())
-                    .setIssuedAt(now)
-                    .setExpiration(expiryDate)
-                    .signWith(getSigningKey(), SignatureAlgorithm.HS512)
-                    .compact();
+        saveRefreshToken(user, token, expiryDate, isRememberMe);
 
-            saveRefreshToken(user, token, tokenSeries, expiryDate);
+        log.info("Refresh token created for user: {}", user.getEmail());
 
-            log.info("Refresh token created for user: {}", user.getEmail());
-
-            return token;
-        } catch (Exception e) {
-            log.error("Error when creating refresh token: {}", e.getMessage());
-            throw new TokenCreationException("Error when creating refresh token", e);
-        }
+        return token;
     }
 
     /**
-     * @param response
-     * @param accessToken
+     * @param response    HttpServletResponse
+     * @param accessToken String
      */
     @Override
     public void setAccessTokenCookie(HttpServletResponse response, String accessToken) {
@@ -135,13 +121,13 @@ public class JwtServiceImpl implements JwtService {
         cookie.setHttpOnly(true);
         cookie.setSecure(true);
         cookie.setPath("/");
-        cookie.setMaxAge(Math.toIntExact(accessTokenExpirationTime));
+        cookie.setMaxAge(Math.toIntExact(ACCESS_TOKEN_VALIDITY));
         response.addCookie(cookie);
     }
 
     /**
-     * @param response
-     * @param refreshToken
+     * @param response     HttpServletResponse
+     * @param refreshToken String
      */
     @Override
     public void setRefreshTokenCookie(HttpServletResponse response, String refreshToken) {
@@ -149,12 +135,12 @@ public class JwtServiceImpl implements JwtService {
         cookie.setHttpOnly(true);
         cookie.setSecure(true);
         cookie.setPath("/");
-        cookie.setMaxAge(Math.toIntExact(refreshTokenExpirationTime));
+        cookie.setMaxAge(Math.toIntExact(REFRESH_TOKEN_VALIDITY));
         response.addCookie(cookie);
     }
 
     /**
-     * @param response
+     * @param response HttpServletResponse
      */
     @Override
     public void removeRefreshTokenCookie(HttpServletResponse response) {
@@ -166,7 +152,7 @@ public class JwtServiceImpl implements JwtService {
     }
 
     /**
-     * @param response
+     * @param response HttpServletResponse
      */
     @Override
     public void removeAccessTokenCookie(HttpServletResponse response) {
@@ -178,8 +164,8 @@ public class JwtServiceImpl implements JwtService {
     }
 
     /**
-     * @param request
-     * @return
+     * @param request HttpServletRequest
+     * @return String
      */
     @Override
     public String getRefreshTokenFromCookie(HttpServletRequest request) {
@@ -195,28 +181,136 @@ public class JwtServiceImpl implements JwtService {
     }
 
     /**
-     * @param refreshToken
-     * @return
+     * @param token String
+     * @return String
      */
     @Override
-    public String getEmailFromRefreshToken(String refreshToken) {
-        return extractClaims(refreshToken, (Claims claims) -> claims.get("email", String.class));
+    public String getEmailFromToken(String token) {
+        return extractClaims(token, (Claims claims) -> claims.get("email", String.class));
     }
 
     /**
-     * @param refreshToken
-     * @return
+     * @param request HttpServletRequest
+     * @return String
      */
     @Override
-    public boolean validateRefreshToken(String refreshToken) {
-        return validateToken(refreshToken, ConstantUtils.JWT_REFRESH_TOKEN);
+    public String getAccessTokenFromCookie(HttpServletRequest request) {
+        Cookie[] cookies = request.getCookies();
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                if (cookie.getName().equals(ConstantUtils.JWT_ACCESS_TOKEN)) {
+                    return cookie.getValue();
+                }
+            }
+        }
+        return null;
+    }
+
+    /**
+     * @param refreshToken String
+     * @param request      HttpServletRequest
+     * @return boolean
+     */
+    @Override
+    public boolean validateRefreshToken(String refreshToken, HttpServletRequest request) {
+        try {
+            Claims claims = extractAllClaims(refreshToken);
+
+            RefreshToken storedRefreshToken = refreshTokenRepository.findByToken(refreshToken)
+                    .orElseThrow(() -> new TokenValidationException("Refresh token not found in database"));
+
+            if (storedRefreshToken.isRevoke()) {
+                log.warn("Attempt to use revoked token for email: {}", storedRefreshToken.getEmail());
+                throw new TokenValidationException("Refresh token has been revoked");
+            }
+
+            if (storedRefreshToken.getExpiryDate().before(new Date())) {
+                log.warn("Expired refresh token used for email: {}", storedRefreshToken.getEmail());
+                throw new TokenValidationException("Refresh token has expired");
+            }
+
+            validateTokenClaims(claims, storedRefreshToken);
+
+            log.info("Refresh token validated successfully for email: {}", storedRefreshToken.getEmail());
+            return true;
+        } catch (TokenValidationException e) {
+            log.error("Error while validating refresh token: {}", e.getMessage());
+            return false;
+        }
+    }
+
+    private void validateTokenClaims(Claims claims, RefreshToken storedRefreshToken) {
+        // validate email
+        String emailFromClaims = claims.get("email", String.class);
+        if (emailFromClaims == null || !emailFromClaims.equals(storedRefreshToken.getEmail())) {
+            log.warn("Email mismatch in refresh token");
+            throw new TokenValidationException("Email mismatch in refresh token");
+        }
+
+        // validate remember me status
+        Boolean isRememberMe = claims.get("remember_me", Boolean.class);
+        if (isRememberMe == null || isRememberMe != storedRefreshToken.isRememberMe()) {
+            log.warn("Remember me status mismatch in refresh token");
+            throw new TokenValidationException("Remember me status mismatch in refresh token");
+        }
+    }
+
+    /**
+     * @param accessToken String
+     * @return boolean
+     */
+    @Override
+    public boolean validateAccessToken(String accessToken) {
+        if (accessToken.isEmpty()) {
+            log.warn("Access token is empty");
+            return false;
+        }
+        try {
+            Claims claims = extractAllClaims(accessToken);
+
+            if (claims.getExpiration().before(new Date())) {
+                log.warn("Access token is expired");
+                return false;
+            }
+            return true;
+        } catch (TokenValidationException e) {
+            log.error("Error while validating access token: {}", e.getMessage());
+            return false;
+        }
+    }
+
+    private <T> T extractClaims(String token, Function<Claims, T> claimsTFunction) {
+        final Claims claims = extractAllClaims(token);
+        return claimsTFunction.apply(claims);
+    }
+
+    private Claims extractAllClaims(String token) {
+        try {
+            return Jwts
+                    .parserBuilder()
+                    .setSigningKey(getSigningKey())
+                    .build()
+                    .parseClaimsJws(token)
+                    .getBody();
+        } catch (MalformedJwtException e) {
+            throw new TokenValidationException("Invalid JWT token", e);
+        } catch (SignatureException e) {
+            throw new TokenValidationException("Invalid JWT signature", e);
+        } catch (ExpiredJwtException e) {
+            throw new TokenValidationException("Expired JWT token", e);
+        } catch (UnsupportedJwtException e) {
+            throw new TokenValidationException("Unsupported JWT token", e);
+        } catch (IllegalArgumentException e) {
+            throw new TokenValidationException("JWT claims string is empty", e);
+        } catch (Exception e) {
+            throw new TokenValidationException("Error while parsing JWT token", e);
+        }
     }
 
     @Override
-    @Transactional
     public void removeByEmail(String email) {
         try {
-            if (!refreshTokenRepository.existsByUserEmail(email)) {
+            if (refreshTokenRepository.findAllByEmail(email).isEmpty()) {
                 log.info("No refresh token found for email: {}", email);
                 return;
             }
@@ -233,89 +327,61 @@ public class JwtServiceImpl implements JwtService {
         }
     }
 
-    private boolean validateToken(String token, String tokenType) {
-        try {
-            Claims claims = Jwts.parserBuilder()
-                    .setSigningKey(getSigningKey())
-                    .build()
-                    .parseClaimsJws(token)
-                    .getBody();
+    protected void saveRefreshToken(User user, String refreshToken, Date expiryDate, boolean isRememberMe) {
+        log.info("Saving refresh token for user: {}", user.getEmail());
+        RefreshToken refreshTokenObject = RefreshToken.builder()
+                .email(user.getEmail())
+                .token(refreshToken)
+                .isRevoke(false)
+                .isRememberMe(isRememberMe)
+                .expiryDate(expiryDate)
+                .deleteFlag(false)
+                .build();
 
-            // Validate token type for refresh tokens
-            if (ConstantUtils.JWT_REFRESH_TOKEN.equals(tokenType)) {
-                String type = claims.get("type", String.class);
-                if (!ConstantUtils.JWT_REFRESH_TOKEN.equals(type)) {
-                    log.warn("Invalid token type: expected refresh token");
-                    return false;
-                }
+        refreshTokenObject.setCreatedBy(user.getId());
 
-                // Validate against stored refresh token
-                String email = claims.getSubject();
-                String series = claims.get("series", String.class);
-                return validateStoredRefreshToken(email, token, series);
-            }
-
-            return true;
-
-        } catch (ExpiredJwtException e) {
-            log.warn("Token is expired: {}", e.getMessage());
-        } catch (JwtException e) {
-            log.warn("Invalid JWT token: {}", e.getMessage());
-        } catch (Exception e) {
-            log.error("Token validation error", e);
-        }
-        return false;
+        refreshTokenRepository.save(refreshTokenObject);
+        log.info("Refresh token saved to database for user: {}", user.getEmail());
     }
 
-    @Transactional(readOnly = true)
-    protected boolean validateStoredRefreshToken(String email, String token, String series) {
-        return refreshTokenRepository.findByEmailAndTokenAndSeries(email, token, series).isPresent();
+    /**
+     * Revoke refresh token
+     *
+     * @param token  String
+     * @param reason String
+     */
+    @Override
+    public void revokeToken(String token, String reason) {
+        RefreshToken refreshToken = refreshTokenRepository.findByToken(token)
+                .orElseThrow(() -> new TokenValidationException("Refresh token not found in database"));
+
+        refreshToken.setRevoke(true);
+        refreshToken.setRevokedAt(new Date());
+        refreshToken.setRevokeReason(reason);
+
+        refreshTokenRepository.save(refreshToken);
+
+        log.info("Refresh token revoked successfully for email: {}", refreshToken.getEmail());
     }
 
-    private <T> T extractClaims(String token, Function<Claims, T> claimsTFunction) {
-        final Claims claims = extractAllClaims(token);
-        return claimsTFunction.apply(claims);
+    /**
+     * Revoke all refresh tokens for a user
+     *
+     * @param email  String
+     * @param reason String
+     */
+    @Override
+    public void revokeAllTokens(String email, String reason) {
+        List<RefreshToken> tokens = refreshTokenRepository.findAllByEmail(email);
+
+        tokens.forEach(token -> {
+            token.setRevoke(true);
+            token.setRevokedAt(new Date());
+            token.setRevokeReason(reason);
+        });
+
+        refreshTokenRepository.saveAll(tokens);
+
+        log.info("All refresh tokens revoked successfully for email: {}", email);
     }
-
-    private Claims extractAllClaims(String token) {
-        return Jwts
-                .parserBuilder()
-                .setSigningKey(getSigningKey())
-                .build()
-                .parseClaimsJws(token)
-                .getBody();
-    }
-
-    @Transactional(readOnly = true)
-    protected void saveRefreshToken(User user, String refreshToken, String tokenSeries, Date expiryDate) {
-        try {
-            log.info("Saving refresh token for user: {}", user.getEmail());
-
-            removeByEmail(user.getEmail());
-
-            log.info("Length of refresh token: {}", refreshToken.length());
-            log.info("Refresh token: {}", refreshToken);
-
-            RefreshToken refreshTokenObject = RefreshToken.builder()
-                    .user(user)
-                    .token(refreshToken)
-                    .series(tokenSeries)
-                    .expiryDate(expiryDate)
-                    .deleteFlag(false)
-                    .build();
-
-            refreshTokenRepository.save(refreshTokenObject);
-            log.info("Refresh token saved to database for user: {}", user.getEmail());
-        } catch (Exception e) {
-            log.error("Error when saving refresh token: {}", e.getMessage());
-            throw new TokenCreationException("Error when saving refresh token", e);
-        }
-    }
-
-    private String generateTokenSeries() {
-        byte[] randomBytes = new byte[32];
-        new SecureRandom().nextBytes(randomBytes);
-        return Base64.getUrlEncoder().withoutPadding().encodeToString(randomBytes);
-    }
-
 }

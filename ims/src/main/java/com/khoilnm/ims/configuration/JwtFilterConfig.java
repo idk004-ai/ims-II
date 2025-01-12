@@ -37,9 +37,9 @@ public class JwtFilterConfig extends OncePerRequestFilter {
     }
 
     /**
-     * @param request
-     * @param response
-     * @param filterChain
+     * @param request     HttpServletRequest
+     * @param response    HttpServletResponse
+     * @param filterChain FilterChain
      * @throws ServletException
      * @throws IOException
      */
@@ -55,14 +55,14 @@ public class JwtFilterConfig extends OncePerRequestFilter {
             return;
         }
         log.info("Processing JWT filter for path: {}", request.getServletPath());
-        final String refreshToken = jwtService.getRefreshTokenFromCookie(request);
-        if (refreshToken == null) {
+        String accessToken = jwtService.getAccessTokenFromCookie(request);
+        if (accessToken == null) {
             filterChain.doFilter(request, response);
             return;
         }
 
-        final String email = jwtService.getEmailFromRefreshToken(refreshToken);
-        if (email != null && SecurityContextHolder.getContext().getAuthentication() == null && jwtService.validateRefreshToken(refreshToken)) {
+        final String email = jwtService.getEmailFromToken(accessToken);
+        if (email != null && SecurityContextHolder.getContext().getAuthentication() == null) {
             UserDetails userDetails = this.userDetailsService.loadUserByUsername(email);
             UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
                     userDetails, null, userDetails.getAuthorities()

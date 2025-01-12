@@ -12,6 +12,10 @@ public interface MasterRepository extends JpaRepository<Master, Integer> {
     @Query(value = "SELECT m FROM Master m WHERE m.category = :category AND m.categoryValue = :categoryValue")
     Optional<Master> findByCategoryAndValue(String category, String categoryValue);
 
+    @Query(value = "SELECT m FROM Master m WHERE m.category = :category AND m.categoryId = :categoryId")
+    Optional<Master> findByCategoryAndCategoryId(String userRole, int categoryId);
+
     @Query(value = "SELECT MAX(m.categoryId) FROM Master m WHERE m.category = :category")
     Optional<Integer> findMaxCategoryId(@Param("category") String category);
+
 }

@@ -7,8 +7,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
 
-import java.util.Locale;
-
 @Service
 @Slf4j
 public class MasterServiceImpl implements MasterService {
@@ -27,10 +25,9 @@ public class MasterServiceImpl implements MasterService {
      * @return String
      */
     @Override
-    public String findByCategoryAndValue(String category, String value) {
-        Master master = masterRepository.findByCategoryAndValue(category, value)
+    public Master findByCategoryAndValue(String category, String value) {
+        return masterRepository.findByCategoryAndValue(category, value)
                 .orElse(null);
-        return master != null ? master.getCategoryValue() : "";
     }
 
     /**
@@ -49,5 +46,16 @@ public class MasterServiceImpl implements MasterService {
     @Override
     public void createCategory(Master master) {
         masterRepository.save(master);
+    }
+
+    /**
+     * @param category
+     * @param categoryId
+     * @return
+     */
+    @Override
+    public Master findByCategoryAndCategoryId(String category, int categoryId) {
+        return masterRepository.findByCategoryAndCategoryId(category, categoryId)
+                .orElse(null);
     }
 }

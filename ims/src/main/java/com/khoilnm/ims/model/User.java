@@ -109,16 +109,16 @@ public class User extends BaseEntity implements UserDetails, Principal {
         List<GrantedAuthority> authorities = new ArrayList<>();
         switch (roleId) {
             case 1:
-                authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
+                authorities.add(new SimpleGrantedAuthority("ADMIN"));
                 break;
             case 2:
-                authorities.add(new SimpleGrantedAuthority("ROLE_MANAGER"));
+                authorities.add(new SimpleGrantedAuthority("MANAGER"));
                 break;
             case 3:
-                authorities.add(new SimpleGrantedAuthority("ROLE_RECRUITER"));
+                authorities.add(new SimpleGrantedAuthority("RECRUITER"));
                 break;
             case 4:
-                authorities.add(new SimpleGrantedAuthority("ROLE_INTERVIEWER"));
+                authorities.add(new SimpleGrantedAuthority("INTERVIEWER"));
                 break;
         }
         return authorities;
