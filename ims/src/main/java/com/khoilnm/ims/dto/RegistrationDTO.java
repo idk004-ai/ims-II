@@ -36,4 +36,7 @@ public class RegistrationDTO implements UserDTO {
     private String phone;
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate dob;
+    @NotEmpty(message = "{ME005}")
+    @NotBlank(message = "{ME005}")
+    private String username;
 }

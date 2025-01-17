@@ -19,6 +19,11 @@
       "name": "spring.cached.path",
       "type": "java.lang.String",
       "description": "Description for spring.cached.path."
+    },
+    {
+      "name": "app.password-reset-token.expiration_time",
+      "type": "java.lang.String",
+      "description": "Description for app.password-reset-token.expiration_time."
     }
   ]
 }

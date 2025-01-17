@@ -89,6 +89,15 @@ public class User extends BaseEntity implements UserDetails, Principal {
     @OneToMany(mappedBy = "createdBy")
     private List<Job> jobs;
 
+    // reset password properties
+    @Column(name = "reset_password_token", length = 500, unique = true)
+    private String resetPasswordToken;
+
+    @Column(name = "reset_password_token_expiry_date")
+    private Date resetPasswordTokenExpiryDate;
+
+    private boolean usedResetPasswordToken;
+
     @Override
     public String getName() {
         return this.fullName;

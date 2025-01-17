@@ -2,12 +2,9 @@ package com.khoilnm.ims.serviceImpl;
 
 import com.khoilnm.ims.exceptions.TokenRevocationException;
 import com.khoilnm.ims.model.RefreshToken;
-import com.khoilnm.ims.model.User;
 import com.khoilnm.ims.repository.RefreshTokenRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -23,7 +20,6 @@ import java.util.NoSuchElementException;
 public class TokenRevocationServiceImpl {
 
     private final RefreshTokenRepository refreshTokenRepository;
-    private final int MAX_ACTIVE_SESSIONS = 5;
 
 
     public TokenRevocationServiceImpl(RefreshTokenRepository refreshTokenRepository) {
@@ -55,13 +51,13 @@ public class TokenRevocationServiceImpl {
      * Revoke single token
      */
     @Transactional
-    public void revokeToken(String token, RevokeReason reason) throws TokenRevocationException {
+    public void revokeToken(String email, String token, RevokeReason reason) throws TokenRevocationException {
         try {
             RefreshToken refreshToken = refreshTokenRepository
                     .findByToken(token)
                     .orElseThrow(() -> new NoSuchElementException("Token not found"));
 
-            performTokenRevocation(refreshToken, reason);
+            performTokenRevocation(refreshToken, reason, email);
 
         } catch (Exception e) {
             log.error("Error revoking token", e);
@@ -78,7 +74,7 @@ public class TokenRevocationServiceImpl {
             List<RefreshToken> activeTokens = refreshTokenRepository
                     .findAllByEmailAndRevokeFalseOrderByCreatedDateDesc(email, false);
 
-            activeTokens.forEach(token -> performTokenRevocation(token, reason));
+            activeTokens.forEach(token -> performTokenRevocation(token, reason, email));
 
         } catch (Exception e) {
             log.error("Error revoking all tokens for user: {}", email, e);
@@ -91,18 +87,15 @@ public class TokenRevocationServiceImpl {
     /**
      * Thực hiện revoke token
      */
-    private void performTokenRevocation(RefreshToken token, RevokeReason reason) {
+    private void performTokenRevocation(RefreshToken token, RevokeReason reason, String email) {
         token.setRevoke(true);
         token.setRevokedAt(new Date());
         token.setRevokeReason(reason.description);
 
         refreshTokenRepository.save(token);
 
-        Authentication currentUser = SecurityContextHolder.getContext().getAuthentication();
-        User user = (User) currentUser.getPrincipal();
-
         log.info("Token revoked - User: {}, Time: {}, By: {}, Reason: {}",
-                token.getEmail(), new Date(), user.getEmail(), reason.description);
+                token.getEmail(), new Date(), email, reason.description);
     }
 
 
@@ -114,6 +107,7 @@ public class TokenRevocationServiceImpl {
         List<RefreshToken> activeTokens = refreshTokenRepository
                 .findAllByEmailAndRevokeFalseOrderByCreatedDateDesc(email, true);
 
+        int MAX_ACTIVE_SESSIONS = 5;
         if (activeTokens.size() > MAX_ACTIVE_SESSIONS) {
             log.info("User {} has {} active sessions, maximum allowed is {}",
                     email, activeTokens.size(), MAX_ACTIVE_SESSIONS);
@@ -121,7 +115,7 @@ public class TokenRevocationServiceImpl {
             activeTokens.stream()
                     .skip(MAX_ACTIVE_SESSIONS)
                     .forEach(token ->
-                            performTokenRevocation(token, RevokeReason.MAX_SESSIONS_EXCEEDED)
+                            performTokenRevocation(token, RevokeReason.MAX_SESSIONS_EXCEEDED, email)
                     );
         }
     }

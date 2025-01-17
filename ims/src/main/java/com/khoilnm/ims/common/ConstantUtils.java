@@ -1,5 +1,7 @@
 package com.khoilnm.ims.common;
 
+import org.springframework.beans.factory.annotation.Value;
+
 public class ConstantUtils {
     // category
     public static final String USER_ROLE = "USER_ROLE";

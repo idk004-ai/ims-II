@@ -10,4 +10,6 @@ public interface UserReadService {
     Optional<User> findByEmail(String email);
 
     List<UserDisplayDTO> getAllUsers(int page, int pageSize);
+
+    User findByResetToken(String token);
 }

@@ -12,10 +12,12 @@ import org.springframework.context.MessageSource;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.Locale;
+import java.util.NoSuchElementException;
 
 @Service
-public class UserWriteServiceImpl implements UserWriteService<UserDTO> {
+public class UserWriteServiceImpl implements UserWriteService<UserDTO, User> {
     private final PasswordEncoder passwordEncoder;
     private final UserRepository userRepository;
     private final MessageSource messageSource;
@@ -30,7 +32,7 @@ public class UserWriteServiceImpl implements UserWriteService<UserDTO> {
     private User createUser(RegistrationDTO registrationDTO) {
         User user = User.builder()
                 .email(registrationDTO.getEmail())
-                ._username(ConstantUtils.FIRST_USERNAME)
+                ._username(registrationDTO.getUsername())
                 .password(passwordEncoder.encode(registrationDTO.getPassword()))
                 .fullName(registrationDTO.getFirstname() + " " + registrationDTO.getLastname())
                 .departmentId(ConstantUtils.IT)
@@ -67,12 +69,13 @@ public class UserWriteServiceImpl implements UserWriteService<UserDTO> {
     }
 
     /**
-     * @param object
-     * @return
+     * <h1>Create a new user</h1>
+     * @param object Object
+     * @return User
      */
     @Override
     public User createUser(UserDTO object) {
-        User user = new User();
+        User user;
         if (object instanceof RegistrationDTO) {
             user = createUser((RegistrationDTO) object);
         } else if (object instanceof UserCreationDTO) {
@@ -83,5 +86,31 @@ public class UserWriteServiceImpl implements UserWriteService<UserDTO> {
         }
         userRepository.save(user);
         return user;
+    }
+
+    /**
+     * @param token      String
+     * @param expiryDate Date
+     * @param email String
+     */
+    @Override
+    public void updateResetPasswordToken(String token, Date expiryDate, String email) {
+        User user = userRepository.findByEmail(email).orElseThrow(() -> {
+            String error = messageSource.getMessage("ME000", null, Locale.getDefault());
+            return new NoSuchElementException(error);
+        });
+        user.setResetPasswordToken(token);
+        user.setResetPasswordTokenExpiryDate(expiryDate);
+        user.setUsedResetPasswordToken(false);
+        userRepository.save(user);
+    }
+
+    /**
+     * <h1>Update user information</h1>
+     * @param user User
+     */
+    @Override
+    public void update(User user) {
+        userRepository.save(user);
     }
 }

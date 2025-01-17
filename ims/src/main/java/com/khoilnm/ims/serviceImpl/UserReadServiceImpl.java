@@ -12,6 +12,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @Service
@@ -48,5 +49,14 @@ public class UserReadServiceImpl implements UserReadService {
         Page<User> users = userRepository.findAll(pageable);
         List<User> listOfUsers = users.getContent();
         return listOfUsers.stream().map(usermapper::toUserDTO).toList();
+    }
+
+    /**
+     * @param token String
+     * @return User
+     */
+    @Override
+    public User findByResetToken(String token) {
+        return userRepository.findByResetPasswordToken(token).orElseThrow(() -> new NoSuchElementException("Reset token not found"));
     }
 }
